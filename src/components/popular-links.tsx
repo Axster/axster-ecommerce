@@ -23,7 +23,7 @@ export function PopularLinks() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 pb-12">
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6">
           I nostri top brand: abbigliamento, scarpe e accessori

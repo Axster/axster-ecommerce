@@ -13,7 +13,7 @@ export function Footer() {
   return (
     <footer>
       <div className="bg-[#6428F1] text-white py-12">
-        <div className="container mx-auto px-4 max-w-7xl md:px-8">
+        <div className="container mx-auto max-w-7xl md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Aiuto e contatti */}
             <div>
@@ -177,7 +177,7 @@ export function Footer() {
                 {[...Array(10)].map((_, i) => (
                   <Image
                     key={i}
-                    src={`images/payment(${i + 1}).svg`}
+                    src={`/images/payment(${i + 1}).svg`}
                     alt={`Payment method ${i + 1}`}
                     width={40}
                     height={25}
@@ -230,7 +230,7 @@ export function Footer() {
 
       {/* Black footer */}
       <div className="bg-black text-white py-8">
-        <div className="container mx-auto px-4 max-w-7xl md:px-8">
+        <div className="container mx-auto max-w-7xl md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
               <div className="flex space-x-4">
@@ -289,11 +289,10 @@ export function Footer() {
                 {[...Array(5)].map((_, i) => (
                   <Link key={i} href="#" className="hover:opacity-80">
                     <Image
-                      src="/placeholder.svg"
+                      src={`/images/social(${i + 1}).png`}
                       alt={`Social ${i + 1}`}
                       width={30}
                       height={30}
-                      className="rounded-full"
                     />
                   </Link>
                 ))}

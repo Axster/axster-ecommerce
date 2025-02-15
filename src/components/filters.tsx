@@ -75,7 +75,6 @@ export function Filters({ products }: FiltersProps) {
   };
 
   const sortedProducts = getSortedProducts();
-
   return (
     <div className="mb-6 space-y-4">
       <div className="flex flex-wrap gap-2">
@@ -84,12 +83,22 @@ export function Filters({ products }: FiltersProps) {
             <SelectTrigger className="w-[200px] border rounded-none">
               <SelectValue placeholder="Ordina" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="featured">Preferiti</SelectItem>
-              <SelectItem value="latest">Ultimi arrivi</SelectItem>
-              <SelectItem value="price-asc">Prezzo crescente</SelectItem>
-              <SelectItem value="price-desc">Prezzo decrescente</SelectItem>
-              <SelectItem value="offers">Offerte</SelectItem>
+            <SelectContent className="border rounded-none">
+              <SelectItem className="border-b rounded-none" value="featured">
+                Preferiti
+              </SelectItem>
+              <SelectItem className="border-b rounded-none" value="latest">
+                Ultimi arrivi
+              </SelectItem>
+              <SelectItem className="border-b rounded-none" value="price-asc">
+                Prezzo crescente
+              </SelectItem>
+              <SelectItem className="border-b rounded-none" value="price-desc">
+                Prezzo decrescente
+              </SelectItem>
+              <SelectItem className="rounded-none" value="offers">
+                Offerte
+              </SelectItem>
             </SelectContent>
           </Select>
         </div>

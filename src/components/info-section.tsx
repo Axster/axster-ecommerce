@@ -1,7 +1,7 @@
 export function InfoSection() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-4xl space-y-8">
+    <div className="container mx-auto py-20">
+      <div className="max-w-6xl space-y-8">
         <section>
           <h2 className="text-xl font-bold mb-4">
             Abbigliamento da uomo per far emergere il tuo amore per la moda
