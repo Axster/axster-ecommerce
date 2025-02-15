@@ -11,16 +11,22 @@ export function Navbar() {
         {/* Top navigation */}
         <div className="flex items-center justify-between h-14 px-4">
           <nav className="flex items-center space-x-6">
-            <Link href="/donna" className="text-sm hover:underline">
+            <Link
+              href="/donna"
+              className="text-sm font-extrabold hover:underline"
+            >
               Donna
             </Link>
             <Link
               href="/uomo"
-              className="text-sm text-white bg-black px-4 py-1"
+              className="text-sm font-extrabold text-white bg-black px-4 py-1"
             >
               Uomo
             </Link>
-            <Link href="/bambini" className="text-sm hover:underline">
+            <Link
+              href="/bambini"
+              className="text-sm  font-extrabold hover:underline"
+            >
               Bambini
             </Link>
           </nav>
@@ -51,49 +57,46 @@ export function Navbar() {
         </div>
 
         {/* Secondary navigation */}
-        <div className="flex items-center justify-between h-12 px-4 border-t">
+        <div className="flex items-center justify-between h-12 px-4">
           <nav className="flex items-center space-x-6">
-            <Link href="/new" className="text-sm font-medium">
+            <Link href="/new" className="text-xs font-semibold">
               NEW IN
             </Link>
-            <Link href="/abbigliamento" className="text-sm">
+            <Link href="/abbigliamento" className="text-xs font-semibold">
               Abbigliamento
             </Link>
-            <Link href="/scarpe" className="text-sm">
+            <Link href="/scarpe" className="text-xs font-semibold">
               Scarpe
             </Link>
-            <Link href="/accessori" className="text-sm">
+            <Link href="/accessori" className="text-xs font-semibold">
               Accessori
             </Link>
-            <Link href="/sport" className="text-sm">
+            <Link href="/sport" className="text-xs font-semibold">
               Sport
             </Link>
-            <Link href="/streetwear" className="text-sm">
+            <Link href="/streetwear" className="text-xs font-semibold">
               Streetwear
             </Link>
-            <Link href="/designer" className="text-sm">
+            <Link href="/designer" className="text-xs font-semibold">
               Designer
             </Link>
-            <Link href="/brand" className="text-sm">
+            <Link href="/brand" className="text-xs font-semibold">
               Brand
             </Link>
-            <Link href="/beauty" className="text-sm">
+            <Link href="/beauty" className="text-xs font-semibold">
               Beauty
             </Link>
-            <Link href="/promo" className="text-sm text-red-600">
+            <Link href="/promo" className="text-xs font-semibold text-red-600">
               PROMO
             </Link>
-            <Link href="/second-hand" className="text-sm">
-              Second hand
-            </Link>
           </nav>
-          <div className="w-72">
+          <div className="w-50">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 border-gray-950" />
               <Input
                 type="search"
                 placeholder="Ricerca"
-                className="w-full pl-10 h-9 border-gray-300"
+                className="w-full pl-10 h-9 border-gray-950 rounded-none"
               />
             </div>
           </div>

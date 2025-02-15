@@ -2,6 +2,13 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { PopularLinks } from "@/components/popular-links";
 import type React from "react"; // Added import for React
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Zalando",
+  description: "Created for exam",
+  generator: "with passion",
+};
 
 export default function RootLayout({
   children,
@@ -24,7 +31,3 @@ export default function RootLayout({
 
 import "./globals.css";
 import { helveticaRegular } from "./font";
-
-export const metadata = {
-  generator: "v0.dev",
-};

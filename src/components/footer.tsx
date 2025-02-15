@@ -13,7 +13,7 @@ export function Footer() {
   return (
     <footer>
       <div className="bg-[#6428F1] text-white py-12">
-        <div className="container mx-auto px-4 max-w-7xl md:px-8">
+        <div className="container mx-auto max-w-7xl md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Aiuto e contatti */}
             <div>
@@ -230,7 +230,7 @@ export function Footer() {
 
       {/* Black footer */}
       <div className="bg-black text-white py-8">
-        <div className="container mx-auto px-4 max-w-7xl md:px-8">
+        <div className="container mx-auto max-w-7xl md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
               <div className="flex space-x-4">

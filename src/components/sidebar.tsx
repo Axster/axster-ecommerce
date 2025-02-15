@@ -26,7 +26,7 @@ export function Sidebar() {
           <a
             key={index}
             href="#"
-            className={`text-sm font-bold block py-1 ${category.isTitle ? "text-purple-600 font-medium" : "hover:text-purple-600"}`}
+            className={`text-sm font-bold block py-1 ${category.isTitle ? "text-purple-600 font-bold" : "hover:text-purple-600"}`}
           >
             {category.name}
           </a>
