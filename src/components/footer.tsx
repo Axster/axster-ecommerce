@@ -289,11 +289,10 @@ export function Footer() {
                 {[...Array(5)].map((_, i) => (
                   <Link key={i} href="#" className="hover:opacity-80">
                     <Image
-                      src="/placeholder.svg"
+                      src={`/images/social(${i + 1}).png`}
                       alt={`Social ${i + 1}`}
                       width={30}
                       height={30}
-                      className="rounded-full"
                     />
                   </Link>
                 ))}
