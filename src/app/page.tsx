@@ -1,14 +1,11 @@
-import { getProducts } from "@/services/api";
+import { getMenProducts } from "@/services/api";
 import ProductGrid from "@/components/product-grid";
 import { Sidebar } from "@/components/sidebar";
 import { Filters } from "@/components/filters";
 import { InfoSection } from "@/components/info-section";
 
 export default async function Page() {
-  const allProducts = await getProducts();
-  const products = allProducts.filter((product) =>
-    ["Clothes", "Shoes", "slipper"].includes(product.category.name),
-  );
+  const products = await getMenProducts();
 
   return (
     <div className="container mx-auto px-4 py-8">

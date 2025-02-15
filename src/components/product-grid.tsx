@@ -20,6 +20,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
             <Image
               src={product.images[0] || "/placeholder.svg"}
               alt={product.title}
+              sizes="200px"
               fill
               className="object-cover rounded-lg"
             />
@@ -30,7 +31,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
           <div className="space-y-1">
             <h3 className="font-medium text-sm">{product.title}</h3>
             <p className="text-sm text-muted-foreground">
-              {product.category.name}
+              {product.category}
             </p>
             <p className="font-bold">{product.price}€</p>
           </div>
