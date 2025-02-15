@@ -1,21 +1,27 @@
-"use client"
+"use client";
 
-import { Heart, Truck, RotateCcw } from "lucide-react"
-import type { Product } from "@/services/api.model"
-import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Heart, Truck, RotateCcw } from "lucide-react";
+import type { Product } from "@/services/api.model";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface ProductInfoProps {
-  product: Product
+  product: Product;
 }
 
 export function ProductInfo({ product }: ProductInfoProps) {
   // Calcola le date di consegna
-  const today = new Date()
-  const standardDelivery = new Date(today)
-  standardDelivery.setDate(today.getDate() + 4)
-  const standardDeliveryEnd = new Date(standardDelivery)
-  standardDeliveryEnd.setDate(standardDelivery.getDate() + 1)
+  const today = new Date();
+  const standardDelivery = new Date(today);
+  standardDelivery.setDate(today.getDate() + 4);
+  const standardDeliveryEnd = new Date(standardDelivery);
+  standardDeliveryEnd.setDate(standardDelivery.getDate() + 1);
 
   return (
     <div className="space-y-6">
@@ -54,7 +60,9 @@ export function ProductInfo({ product }: ProductInfoProps) {
         </div>
 
         <div className="flex gap-2">
-          <Button className="flex-1 bg-black text-white hover:bg-black/90">Aggiungi al carrello</Button>
+          <Button className="flex-1 bg-black text-white hover:bg-black/90">
+            Aggiungi al carrello
+          </Button>
           <Button variant="outline" size="icon">
             <Heart className="w-5 h-5" />
           </Button>
@@ -64,7 +72,9 @@ export function ProductInfo({ product }: ProductInfoProps) {
         <div className="space-y-4 pt-4 border-t">
           <div className="text-sm">
             <p>
-              Venduto da <span className="text-purple-600 font-medium">PME Legend</span>, spedito da Zalando.
+              Venduto da{" "}
+              <span className="text-purple-600 font-medium">PME Legend</span>,
+              spedito da Zalando.
             </p>
           </div>
 
@@ -114,6 +124,5 @@ export function ProductInfo({ product }: ProductInfoProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

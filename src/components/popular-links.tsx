@@ -12,7 +12,7 @@ export function PopularLinks() {
     ["Scarpe Black Friday", "Scarpe Jordan", "Stradivarius", "The North Face"],
     ["Tommy Hilfiger", "Topshop", "Triumph", "Under Armour"],
     ["Vans", "", "", ""],
-  ]
+  ];
 
   const topCategories = [
     ["Abiti da festa", "adidas Ozweego", "Borse", "Cashmere"],
@@ -20,18 +20,24 @@ export function PopularLinks() {
     ["Multipack", "Nike Air Force 1", "Promozioni", "Puma Cali"],
     ["Scarpe Eleganti", "Smoking uomo", "Sneakers", "Stivali"],
     ["Tacchi alti", "Taglie forti", "", ""],
-  ]
+  ];
 
   return (
     <div className="container mx-auto px-4 py-12">
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6">I nostri top brand: abbigliamento, scarpe e accessori</h2>
+        <h2 className="text-2xl font-bold mb-6">
+          I nostri top brand: abbigliamento, scarpe e accessori
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-2">
           {topBrands.map((row, rowIndex) =>
             row.map(
               (brand, colIndex) =>
                 brand && (
-                  <a key={`${rowIndex}-${colIndex}`} href="#" className="hover:underline">
+                  <a
+                    key={`${rowIndex}-${colIndex}`}
+                    href="#"
+                    className="hover:underline"
+                  >
                     {brand}
                   </a>
                 ),
@@ -41,13 +47,19 @@ export function PopularLinks() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-bold mb-6">Le nostre top categorie più alla moda</h2>
+        <h2 className="text-2xl font-bold mb-6">
+          Le nostre top categorie più alla moda
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-2">
           {topCategories.map((row, rowIndex) =>
             row.map(
               (category, colIndex) =>
                 category && (
-                  <a key={`${rowIndex}-${colIndex}`} href="#" className="hover:underline">
+                  <a
+                    key={`${rowIndex}-${colIndex}`}
+                    href="#"
+                    className="hover:underline"
+                  >
                     {category}
                   </a>
                 ),
@@ -56,6 +68,5 @@ export function PopularLinks() {
         </div>
       </section>
     </div>
-  )
+  );
 }
-

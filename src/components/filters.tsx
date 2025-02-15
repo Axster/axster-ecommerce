@@ -1,43 +1,62 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChevronDown } from "lucide-react"
-import type { Product } from "@/services/api.model"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { PriceFilter } from "./price-filter"
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import type { Product } from "@/services/api.model";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { PriceFilter } from "./price-filter";
+import ProductGrid from "./product-grid";
 
 interface FiltersProps {
-  products: Product[]
+  products: Product[];
 }
 
 export function Filters({ products }: FiltersProps) {
-  const [sortBy, setSortBy] = useState("")
+  const [sortBy, setSortBy] = useState("");
   const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({
     min: 4,
     max: 9500,
-  })
+  });
 
   const getSortedProducts = () => {
     const filteredProducts = products.filter(
-      (product) => product.price >= priceRange.min && product.price <= priceRange.max,
-    )
+      (product) =>
+        product.price >= priceRange.min && product.price <= priceRange.max,
+    );
 
     switch (sortBy) {
       case "latest":
-        return filteredProducts.sort((a, b) => new Date(b.creationAt).getTime() - new Date(a.creationAt).getTime())
+        return filteredProducts.sort(
+          (a, b) =>
+            new Date(b.creationAt).getTime() - new Date(a.creationAt).getTime(),
+        );
       case "price-asc":
-        return filteredProducts.sort((a, b) => a.price - b.price)
+        return filteredProducts.sort((a, b) => a.price - b.price);
       case "price-desc":
-        return filteredProducts.sort((a, b) => b.price - a.price)
+        return filteredProducts.sort((a, b) => b.price - a.price);
       default:
-        return filteredProducts
+        return filteredProducts;
     }
-  }
+  };
 
   const handlePriceFilter = (min: number, max: number) => {
-    setPriceRange({ min, max })
-  }
+    setPriceRange({ min, max });
+  };
+
+  const sortedProducts = getSortedProducts();
+
+  console.log(sortedProducts);
 
   return (
     <div className="mb-6 space-y-4">
@@ -71,7 +90,10 @@ export function Filters({ products }: FiltersProps) {
 
         {/* Altri filtri non funzionanti */}
         {["Brand", "Taglia", "Colore", "Novità", "Materiale"].map((filter) => (
-          <button key={filter} className="px-4 py-2 border flex items-center gap-2 hover:border-gray-400">
+          <button
+            key={filter}
+            className="px-4 py-2 border flex items-center gap-2 hover:border-gray-400"
+          >
             {filter}
             <ChevronDown className="w-4 h-4" />
           </button>
@@ -79,16 +101,19 @@ export function Filters({ products }: FiltersProps) {
       </div>
 
       <div className="flex flex-wrap gap-2">
-        {["Multipack", "Lunghezza", "Fantasia", "Linea", "Tipo prodotto", "Funzionalità adattive", "Consegna"].map(
+        {["Lunghezza", "Fantasia", "Linea", "Tipo prodotto", "Consegna"].map(
           (filter) => (
-            <button key={filter} className="px-4 py-2 border flex items-center gap-2 hover:border-gray-400">
+            <button
+              key={filter}
+              className="px-4 py-2 border flex items-center gap-2 hover:border-gray-400"
+            >
               {filter}
               <ChevronDown className="w-4 h-4" />
             </button>
           ),
         )}
       </div>
+      <ProductGrid products={sortedProducts} />
     </div>
-  )
+  );
 }
-

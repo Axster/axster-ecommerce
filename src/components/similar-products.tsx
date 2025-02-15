@@ -1,33 +1,40 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { ChevronLeft, ChevronRight, Heart } from "lucide-react"
-import type { Product } from "@/services/api.model"
-import { Button } from "@/components/ui/button"
+import { useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
+import type { Product } from "@/services/api.model";
+import { Button } from "@/components/ui/button";
 
 interface SimilarProductsProps {
-  products: Product[]
+  products: Product[];
 }
 
 export function SimilarProducts({ products }: SimilarProductsProps) {
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = direction === "left" ? -300 : 300
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" })
+      const scrollAmount = direction === "left" ? -300 : 300;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-bold">Prodotti simili</h2>
       <div className="relative">
-        <div ref={scrollRef} className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth">
+        <div
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
+        >
           {products.map((product) => (
-            <Link key={product.id} href={`/product/${product.id}`} className="flex-shrink-0 w-[250px] group">
+            <Link
+              key={product.id}
+              href={`/product/${product.id}`}
+              className="flex-shrink-0 w-[250px] group"
+            >
               <div className="relative aspect-[3/4] mb-2">
                 <Image
                   src={product.images[0] || "/placeholder.svg"}
@@ -64,6 +71,5 @@ export function SimilarProducts({ products }: SimilarProductsProps) {
         </Button>
       </div>
     </div>
-  )
+  );
 }
-

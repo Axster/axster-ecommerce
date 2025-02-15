@@ -1,24 +1,24 @@
-"use client"
+"use client";
 
-import { useState, useRef } from "react"
-import Image from "next/image"
-import { ChevronDown, ChevronUp } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useRef } from "react";
+import Image from "next/image";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface ProductGalleryProps {
-  images: string[]
+  images: string[];
 }
 
 export function ProductGallery({ images }: ProductGalleryProps) {
-  const [selectedImage, setSelectedImage] = useState(0)
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const [selectedImage, setSelectedImage] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollThumbnails = (direction: "up" | "down") => {
     if (scrollRef.current) {
-      const scrollAmount = direction === "up" ? -200 : 200
-      scrollRef.current.scrollBy({ top: scrollAmount, behavior: "smooth" })
+      const scrollAmount = direction === "up" ? -200 : 200;
+      scrollRef.current.scrollBy({ top: scrollAmount, behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <div className="flex gap-4">
@@ -77,6 +77,5 @@ export function ProductGallery({ images }: ProductGalleryProps) {
         />
       </div>
     </div>
-  )
+  );
 }
-

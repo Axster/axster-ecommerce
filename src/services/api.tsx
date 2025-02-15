@@ -1,5 +1,5 @@
 // services/api.tsx
-import type { Product } from "./api.model"
+import type { Product } from "./api.model";
 
 const products: Product[] = [
   // Sample product data - Replace with your actual data fetching logic
@@ -20,15 +20,14 @@ const products: Product[] = [
     images: ["/image3.jpg"],
   },
   // Add more products here...
-]
+];
 
 export async function getProducts(): Promise<Product[]> {
   // Replace this with your actual API call to fetch products
-  return products
+  return products;
 }
 
 export async function getProductById(id: number): Promise<Product | undefined> {
   // Replace this with your actual API call to fetch a single product by ID
-  return products.find((product) => product.id === id)
+  return products.find((product) => product.id === id);
 }
-

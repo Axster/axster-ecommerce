@@ -1,6 +1,13 @@
-import Link from "next/link"
-import Image from "next/image"
-import { BugIcon as QuestionMark, Gift } from "lucide-react"
+import Link from "next/link";
+import Image from "next/image";
+import { CircleHelp, Truck, CreditCard, ShoppingBag, Gift } from "lucide-react";
+import BRT from "../../public/images/brt.svg";
+import DHL from "../../public/images/dhl-express.svg";
+import SDA from "../../public/images/sda.svg";
+import poste from "../../public/images/poste-italiane.svg";
+import QRcode from "../../public/images/app-qr.png";
+import AppleStore from "../../public/images/app-store.svg";
+import GooglePlay from "../../public/images/play-store.svg";
 
 export function Footer() {
   return (
@@ -11,7 +18,7 @@ export function Footer() {
             {/* Aiuto e contatti */}
             <div>
               <h3 className="font-bold mb-4 flex items-center gap-2">
-                <QuestionMark className="w-5 h-5" />
+                <CircleHelp className="w-5 h-5" />
                 Aiuto e contatti
               </h3>
               <ul className="space-y-3 text-sm">
@@ -126,26 +133,51 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
             <div>
               <h4 className="font-bold mb-4 text-sm flex items-center gap-2">
-                <Image src="/placeholder.svg" alt="shipping" width={24} height={24} className="w-5 h-5" />
+                <Truck className="w-5 h-5" />
                 Spedito da
               </h4>
-              <div className="flex gap-4">
-                <Image src="/placeholder.svg" alt="DHL" width={50} height={25} className="h-6" />
-                <Image src="/placeholder.svg" alt="SDA" width={50} height={25} className="h-6" />
-                <Image src="/placeholder.svg" alt="BRT" width={50} height={25} className="h-6" />
+              <div className="grid grid-cols-5 gap-2">
+                <Image
+                  src={DHL}
+                  alt="DHL"
+                  width={48.61}
+                  height={32}
+                  className="h-6"
+                />
+                <Image
+                  src={SDA}
+                  alt="SDA"
+                  width={48.61}
+                  height={32}
+                  className="h-6"
+                />
+                <Image
+                  src={BRT}
+                  alt="BRT"
+                  width={48.61}
+                  height={32}
+                  className="h-6"
+                />
+                <Image
+                  src={poste}
+                  alt="poste-italiane"
+                  width={48.61}
+                  height={32}
+                  className="h-6"
+                />
               </div>
             </div>
 
             <div>
               <h4 className="font-bold mb-4 text-sm flex items-center gap-2">
-                <Image src="/placeholder.svg" alt="payment" width={24} height={24} className="w-5 h-5" />
+                <CreditCard className="w-5 h-5" />
                 Modalità di pagamento
               </h4>
               <div className="grid grid-cols-5 gap-2">
                 {[...Array(10)].map((_, i) => (
                   <Image
                     key={i}
-                    src="/placeholder.svg"
+                    src={`images/payment(${i + 1}).svg`}
                     alt={`Payment method ${i + 1}`}
                     width={40}
                     height={25}
@@ -157,7 +189,7 @@ export function Footer() {
 
             <div>
               <h4 className="font-bold mb-4 text-sm flex items-center gap-2">
-                <Image src="/placeholder.svg" alt="shopping" width={24} height={24} className="w-5 h-5" />
+                <ShoppingBag className="w-5 h-5" />
                 Shopping online facile
               </h4>
               <ul className="text-sm space-y-2">
@@ -225,10 +257,28 @@ export function Footer() {
             <div>
               <h5 className="text-sm mb-4">App Zalando:</h5>
               <div className="flex items-center gap-4">
-                <Image src="/placeholder.svg" alt="QR Code" width={80} height={80} className="rounded" />
+                <Image
+                  src={QRcode}
+                  alt="QR Code"
+                  width={80}
+                  height={80}
+                  className="rounded"
+                />
                 <div className="space-y-2">
-                  <Image src="/placeholder.svg" alt="App Store" width={120} height={40} className="h-10" />
-                  <Image src="/placeholder.svg" alt="Google Play" width={120} height={40} className="h-10" />
+                  <Image
+                    src={AppleStore}
+                    alt="App Store"
+                    width={120}
+                    height={40}
+                    className="h-10"
+                  />
+                  <Image
+                    src={GooglePlay}
+                    alt="Google Play"
+                    width={120}
+                    height={40}
+                    className="h-10"
+                  />
                 </div>
               </div>
             </div>
@@ -253,6 +303,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

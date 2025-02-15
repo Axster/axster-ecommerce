@@ -1,7 +1,8 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Search, Heart, ShoppingBag, User, Globe } from "lucide-react"
-import { Input } from "@/components/ui/input"
+import Link from "next/link";
+import Image from "next/image";
+import { Search, Heart, ShoppingBag, User, Globe } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import zalando from "../../public/images/zalando_logo.png";
 
 export function Navbar() {
   return (
@@ -13,7 +14,10 @@ export function Navbar() {
             <Link href="/donna" className="text-sm hover:underline">
               Donna
             </Link>
-            <Link href="/uomo" className="text-sm text-white bg-black px-4 py-1">
+            <Link
+              href="/uomo"
+              className="text-sm text-white bg-black px-4 py-1"
+            >
               Uomo
             </Link>
             <Link href="/bambini" className="text-sm hover:underline">
@@ -22,11 +26,11 @@ export function Navbar() {
           </nav>
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-MAbWcKyPZwBP7Qv5PCXHGGs1zBfCBY.png"
+              src={zalando}
               alt="Zalando"
               width={130}
               height={40}
-              className="h-10 w-auto"
+              className="h-7 w-auto"
             />
           </Link>
           <div className="flex items-center space-x-6">
@@ -86,12 +90,15 @@ export function Navbar() {
           <div className="w-72">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <Input type="search" placeholder="Ricerca" className="w-full pl-10 h-9 border-gray-300" />
+              <Input
+                type="search"
+                placeholder="Ricerca"
+                className="w-full pl-10 h-9 border-gray-300"
+              />
             </div>
           </div>
         </div>
       </div>
     </header>
-  )
+  );
 }
-

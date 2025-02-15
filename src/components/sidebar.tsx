@@ -17,7 +17,7 @@ export function Sidebar() {
     { name: "Moda mare" },
     { name: "Per la notte" },
     { name: "OFFERTE" },
-  ]
+  ];
 
   return (
     <aside className="w-64 hidden md:block">
@@ -26,13 +26,12 @@ export function Sidebar() {
           <a
             key={index}
             href="#"
-            className={`block py-1 ${category.isTitle ? "text-purple-600 font-medium" : "hover:text-purple-600"}`}
+            className={`text-sm font-bold block py-1 ${category.isTitle ? "text-purple-600 font-medium" : "hover:text-purple-600"}`}
           >
             {category.name}
           </a>
         ))}
       </nav>
     </aside>
-  )
+  );
 }
-

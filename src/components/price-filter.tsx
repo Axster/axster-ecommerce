@@ -1,43 +1,43 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as SliderPrimitive from "@radix-ui/react-slider"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
-import { Button } from "@/components/ui/button"
+import * as React from "react";
+import * as SliderPrimitive from "@radix-ui/react-slider";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
 
 interface PriceFilterProps {
-  onClose: () => void
-  onApply: (min: number, max: number) => void
+  onClose: () => void;
+  onApply: (min: number, max: number) => void;
 }
 
 export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
-  const [minPrice, setMinPrice] = React.useState(4)
-  const [maxPrice, setMaxPrice] = React.useState(9500)
-  const [sliderValues, setSliderValues] = React.useState([minPrice, maxPrice])
+  const [minPrice, setMinPrice] = React.useState(4);
+  const [maxPrice, setMaxPrice] = React.useState(9500);
+  const [sliderValues, setSliderValues] = React.useState([minPrice, maxPrice]);
 
   const handleSliderChange = (values: number[]) => {
-    setSliderValues(values)
-    setMinPrice(values[0])
-    setMaxPrice(values[1])
-  }
+    setSliderValues(values);
+    setMinPrice(values[0]);
+    setMaxPrice(values[1]);
+  };
 
   const handleInputChange = (value: string, type: "min" | "max") => {
-    const numValue = Number.parseInt(value) || 0
+    const numValue = Number.parseInt(value) || 0;
     if (type === "min") {
-      setMinPrice(numValue)
-      setSliderValues([numValue, sliderValues[1]])
+      setMinPrice(numValue);
+      setSliderValues([numValue, sliderValues[1]]);
     } else {
-      setMaxPrice(numValue)
-      setSliderValues([sliderValues[0], numValue])
+      setMaxPrice(numValue);
+      setSliderValues([sliderValues[0], numValue]);
     }
-  }
+  };
 
   const handleApply = () => {
-    onApply(minPrice, maxPrice)
-    onClose()
-  }
+    onApply(minPrice, maxPrice);
+    onClose();
+  };
 
   return (
     <div className="p-4 bg-white border rounded-lg shadow-lg w-80">
@@ -56,7 +56,9 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
                 onChange={(e) => handleInputChange(e.target.value, "min")}
                 className="pr-6"
               />
-              <span className="absolute right-2 top-1/2 -translate-y-1/2">€</span>
+              <span className="absolute right-2 top-1/2 -translate-y-1/2">
+                €
+              </span>
             </div>
           </div>
           <div className="flex-1">
@@ -71,7 +73,9 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
                 onChange={(e) => handleInputChange(e.target.value, "max")}
                 className="pr-6"
               />
-              <span className="absolute right-2 top-1/2 -translate-y-1/2">€</span>
+              <span className="absolute right-2 top-1/2 -translate-y-1/2">
+                €
+              </span>
             </div>
           </div>
         </div>
@@ -107,7 +111,9 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
               </Label>
               <Switch id="free-shipping" />
             </div>
-            <p className="text-xs text-gray-500">per ordini a partire da 28,90€</p>
+            <p className="text-xs text-gray-500">
+              per ordini a partire da 28,90€
+            </p>
           </div>
         </div>
 
@@ -116,12 +122,14 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
           <Button variant="ghost" className="flex-1" onClick={onClose}>
             Annulla
           </Button>
-          <Button className="flex-1 bg-gray-200 hover:bg-gray-300 text-black" onClick={handleApply}>
+          <Button
+            className="flex-1 bg-gray-200 hover:bg-gray-300 text-black"
+            onClick={handleApply}
+          >
             Salva
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }
-
