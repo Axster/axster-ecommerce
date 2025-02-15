@@ -177,7 +177,7 @@ export function Footer() {
                 {[...Array(10)].map((_, i) => (
                   <Image
                     key={i}
-                    src={`images/payment(${i + 1}).svg`}
+                    src={`/images/payment(${i + 1}).svg`}
                     alt={`Payment method ${i + 1}`}
                     width={40}
                     height={25}
