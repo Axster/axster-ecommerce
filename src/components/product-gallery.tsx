@@ -50,6 +50,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
                 src={image || "/placeholder.svg"}
                 alt={`Product thumbnail ${index + 1}`}
                 fill
+                sizes="400px"
                 className="object-cover"
               />
             </button>
@@ -72,6 +73,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
           src={images[selectedImage] || "/placeholder.svg"}
           alt="Product image"
           fill
+          sizes="800px"
           className="object-cover rounded-lg"
           priority
         />

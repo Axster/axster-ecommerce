@@ -41,6 +41,7 @@ export function SimilarProducts({ products }: SimilarProductsProps) {
                   alt={product.title}
                   fill
                   className="object-cover rounded-lg"
+                  sizes="400px"
                 />
                 <button className="absolute top-2 right-2 p-2 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity">
                   <Heart className="w-5 h-5" />

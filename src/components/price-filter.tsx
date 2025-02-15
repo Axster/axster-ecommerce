@@ -13,8 +13,8 @@ interface PriceFilterProps {
 }
 
 export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
-  const [minPrice, setMinPrice] = React.useState(4);
-  const [maxPrice, setMaxPrice] = React.useState(9500);
+  const [minPrice, setMinPrice] = React.useState(1);
+  const [maxPrice, setMaxPrice] = React.useState(3000);
   const [sliderValues, setSliderValues] = React.useState([minPrice, maxPrice]);
 
   const handleSliderChange = (values: number[]) => {
@@ -40,10 +40,10 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
   };
 
   return (
-    <div className="p-4 bg-white border rounded-lg shadow-lg w-80">
+    <div className="p-1 bg-white border rounded-lg shadow-lg w-80">
       <div className="space-y-6">
         {/* Price inputs */}
-        <div className="flex gap-4">
+        <div className="flex gap-1">
           <div className="flex-1">
             <Label htmlFor="min-price" className="text-sm">
               Prezzo da
@@ -84,8 +84,8 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
         <SliderPrimitive.Root
           className="relative flex items-center w-full h-5 select-none touch-none"
           value={sliderValues}
-          max={9500}
-          min={4}
+          max={3000}
+          min={1}
           step={1}
           onValueChange={handleSliderChange}
         >
@@ -97,7 +97,7 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
         </SliderPrimitive.Root>
 
         {/* Switches */}
-        <div className="space-y-4">
+        <div className="space-y-1">
           <div className="flex items-center justify-between">
             <Label htmlFor="offers" className="text-sm font-normal">
               Offerte
@@ -118,12 +118,12 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
         </div>
 
         {/* Actions */}
-        <div className="flex gap-2 pt-4 border-t">
+        <div className="flex gap-2 pt-1 border-t">
           <Button variant="ghost" className="flex-1" onClick={onClose}>
             Annulla
           </Button>
           <Button
-            className="flex-1 bg-gray-200 hover:bg-gray-300 text-black"
+            className="flex-1 bg-gray-200 hover:bg-gray-3000 text-black"
             onClick={handleApply}
           >
             Salva
