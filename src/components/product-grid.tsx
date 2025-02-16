@@ -7,7 +7,9 @@ interface ProductGridProps {
   products: Product[];
 }
 
-export default function ProductGrid({ products }: ProductGridProps) {
+export default function ProductGrid({
+  products,
+}: ProductGridProps) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {products.map((product) => (
@@ -18,7 +20,10 @@ export default function ProductGrid({ products }: ProductGridProps) {
         >
           <div className="relative aspect-[3/4] mb-2">
             <Image
-              src={product.images[0] || "/placeholder.svg"}
+              src={
+                product.images[0] ||
+                "/placeholder.svg"
+              }
               alt={product.title}
               sizes="200px"
               fill
@@ -29,11 +34,15 @@ export default function ProductGrid({ products }: ProductGridProps) {
             </button>
           </div>
           <div className="space-y-1">
-            <h3 className="font-medium text-sm">{product.title}</h3>
+            <h3 className="font-medium text-sm">
+              {product.title}
+            </h3>
             <p className="text-sm text-muted-foreground">
               {product.category}
             </p>
-            <p className="font-bold">{product.price}€</p>
+            <p className="font-bold">
+              {product.price}€
+            </p>
           </div>
         </Link>
       ))}

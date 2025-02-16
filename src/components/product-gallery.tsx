@@ -2,21 +2,33 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ProductGalleryProps {
   images: string[];
 }
 
-export function ProductGallery({ images }: ProductGalleryProps) {
-  const [selectedImage, setSelectedImage] = useState(0);
+export function ProductGallery({
+  images,
+}: ProductGalleryProps) {
+  const [selectedImage, setSelectedImage] =
+    useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scrollThumbnails = (direction: "up" | "down") => {
+  const scrollThumbnails = (
+    direction: "up" | "down"
+  ) => {
     if (scrollRef.current) {
-      const scrollAmount = direction === "up" ? -200 : 200;
-      scrollRef.current.scrollBy({ top: scrollAmount, behavior: "smooth" });
+      const scrollAmount =
+        direction === "up" ? -200 : 200;
+      scrollRef.current.scrollBy({
+        top: scrollAmount,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -41,7 +53,9 @@ export function ProductGallery({ images }: ProductGalleryProps) {
           {images.map((image, index) => (
             <button
               key={index}
-              onClick={() => setSelectedImage(index)}
+              onClick={() =>
+                setSelectedImage(index)
+              }
               className={`relative w-20 aspect-square flex-shrink-0 border rounded-md overflow-hidden
                 ${selectedImage === index ? "border-black" : "border-gray-200"}
                 hover:border-gray-400 transition-colors`}
@@ -70,7 +84,10 @@ export function ProductGallery({ images }: ProductGalleryProps) {
       {/* Main image */}
       <div className="relative flex-1 aspect-square">
         <Image
-          src={images[selectedImage] || "/placeholder.svg"}
+          src={
+            images[selectedImage] ||
+            "/placeholder.svg"
+          }
           alt="Product image"
           fill
           sizes="800px"

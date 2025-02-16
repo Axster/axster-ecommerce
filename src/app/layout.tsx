@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
-      <body className={helveticaRegular.className}>
+      <body
+        className={helveticaRegular.className}
+      >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <Navbar />
           <main>{children}</main>

@@ -3,7 +3,11 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Heart,
+} from "lucide-react";
 import type { Product } from "@/services/api.model";
 import { Button } from "@/components/ui/button";
 
@@ -11,19 +15,29 @@ interface SimilarProductsProps {
   products: Product[];
 }
 
-export function SimilarProducts({ products }: SimilarProductsProps) {
+export function SimilarProducts({
+  products,
+}: SimilarProductsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: "left" | "right") => {
+  const scroll = (
+    direction: "left" | "right"
+  ) => {
     if (scrollRef.current) {
-      const scrollAmount = direction === "left" ? -300 : 300;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      const scrollAmount =
+        direction === "left" ? -300 : 300;
+      scrollRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
     <div className="space-y-4">
-      <h2 className="text-2xl font-bold">Prodotti simili</h2>
+      <h2 className="text-2xl font-bold">
+        Prodotti simili
+      </h2>
       <div className="relative">
         <div
           ref={scrollRef}
@@ -37,7 +51,10 @@ export function SimilarProducts({ products }: SimilarProductsProps) {
             >
               <div className="relative aspect-[3/4] mb-2">
                 <Image
-                  src={product.images[0] || "/placeholder.svg"}
+                  src={
+                    product.images[0] ||
+                    "/placeholder.svg"
+                  }
                   alt={product.title}
                   fill
                   className="object-cover rounded-lg"
@@ -48,8 +65,12 @@ export function SimilarProducts({ products }: SimilarProductsProps) {
                 </button>
               </div>
               <div className="space-y-1">
-                <h3 className="font-medium text-sm">{product.title}</h3>
-                <p className="font-bold">{product.price}€</p>
+                <h3 className="font-medium text-sm">
+                  {product.title}
+                </h3>
+                <p className="font-bold">
+                  {product.price}€
+                </p>
               </div>
             </Link>
           ))}

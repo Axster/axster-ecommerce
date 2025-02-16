@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CircleHelp, Truck, CreditCard, ShoppingBag, Gift } from "lucide-react";
+import {
+  CircleHelp,
+  Truck,
+  CreditCard,
+  ShoppingBag,
+  Gift,
+} from "lucide-react";
 import BRT from "../../public/images/brt.svg";
 import DHL from "../../public/images/dhl-express.svg";
 import SDA from "../../public/images/sda.svg";
@@ -23,32 +29,50 @@ export function Footer() {
               </h3>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Domande frequenti
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Come effettuare un ordine
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Tempi di spedizione
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Come effettuare un reso
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Prodotti partner
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Sicurezza del prodotto
                   </Link>
                 </li>
@@ -59,23 +83,37 @@ export function Footer() {
             <div>
               <ul className="space-y-3 text-sm mt-12">
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Metodi di pagamento
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Dove si trova il mio ordine
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
-                    Come modifico i dati in account
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
+                    Come modifico i dati in
+                    account
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
-                    Iscriviti alla nostra Newsletter
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
+                    Iscriviti alla nostra
+                    Newsletter
                   </Link>
                 </li>
               </ul>
@@ -89,12 +127,18 @@ export function Footer() {
               </h3>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Acquista un buono regalo
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Buoni Regalo Aziendali
                   </Link>
                 </li>
@@ -103,25 +147,39 @@ export function Footer() {
 
             {/* ZALANDO */}
             <div>
-              <h3 className="font-bold mb-4">ZALANDO</h3>
+              <h3 className="font-bold mb-4">
+                ZALANDO
+              </h3>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Sito aziendale
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Lavoro
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Stampa
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Investitori
                   </Link>
                 </li>
@@ -193,32 +251,48 @@ export function Footer() {
                 Shopping online facile
               </h4>
               <ul className="text-sm space-y-2">
-                <li>Spedizione e reso gratuiti*</li>
+                <li>
+                  Spedizione e reso gratuiti*
+                </li>
                 <li>Reso gratuito</li>
                 <li>30 giorni per il reso</li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-sm">Diventa Partner</h4>
+              <h4 className="font-bold mb-4 text-sm">
+                Diventa Partner
+              </h4>
               <ul className="text-sm space-y-2">
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Connected Retail
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Servizi di marketing
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Scopri di più
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:underline">
+                  <Link
+                    href="#"
+                    className="hover:underline"
+                  >
                     Zalando Partner
                   </Link>
                 </li>
@@ -234,28 +308,45 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
               <div className="flex space-x-4">
-                <Link href="#" className="text-sm hover:underline">
+                <Link
+                  href="#"
+                  className="text-sm hover:underline"
+                >
                   CGV
                 </Link>
-                <Link href="#" className="text-sm hover:underline">
+                <Link
+                  href="#"
+                  className="text-sm hover:underline"
+                >
                   Informazioni legali
                 </Link>
-                <Link href="#" className="text-sm hover:underline">
+                <Link
+                  href="#"
+                  className="text-sm hover:underline"
+                >
                   Privacy
                 </Link>
               </div>
               <div className="flex space-x-4">
-                <Link href="#" className="text-sm hover:underline">
+                <Link
+                  href="#"
+                  className="text-sm hover:underline"
+                >
                   Tech blog
                 </Link>
-                <Link href="#" className="text-sm hover:underline">
+                <Link
+                  href="#"
+                  className="text-sm hover:underline"
+                >
                   Impostazioni dati
                 </Link>
               </div>
             </div>
 
             <div>
-              <h5 className="text-sm mb-4">App Zalando:</h5>
+              <h5 className="text-sm mb-4">
+                App Zalando:
+              </h5>
               <div className="flex items-center gap-4">
                 <Image
                   src={QRcode}
@@ -284,10 +375,16 @@ export function Footer() {
             </div>
 
             <div>
-              <h5 className="text-sm mb-4">Trovaci anche su:</h5>
+              <h5 className="text-sm mb-4">
+                Trovaci anche su:
+              </h5>
               <div className="flex space-x-4">
                 {[...Array(5)].map((_, i) => (
-                  <Link key={i} href="#" className="hover:opacity-80">
+                  <Link
+                    key={i}
+                    href="#"
+                    className="hover:opacity-80"
+                  >
                     <Image
                       src={`/images/social(${i + 1}).png`}
                       alt={`Social ${i + 1}`}
