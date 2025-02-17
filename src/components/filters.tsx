@@ -8,7 +8,6 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
 } from "@/components/ui/select";
 import {
   Popover,
@@ -25,6 +24,9 @@ import {
 interface FiltersProps {
   products: Product[];
 }
+type SortableFields =
+  | keyof Omit<Product, "meta">
+  | "createdAt";
 
 export function Filters({
   products,
@@ -36,16 +38,50 @@ export function Filters({
     min: 4,
     max: 9500,
   });
+  const [tempSort, setTempSort] =
+    useState<string>("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const router = useRouter();
   const searchParams = useSearchParams();
   const sortByParam = searchParams.get(
     "sortBy"
-  ) as keyof Product | null;
+  ) as SortableFields | null;
   const order = searchParams.get("order") as
     | "asc"
     | "desc"
     | null;
+
+  const handleSortChange = (value: string) => {
+    setTempSort(value);
+  };
+
+  const handleSortSave = () => {
+    const newParams = new URLSearchParams(
+      searchParams.toString()
+    );
+
+    if (tempSort === "") {
+      newParams.delete("sortBy");
+      newParams.delete("order");
+    } else {
+      const [sortBy, order] = tempSort.split("-");
+      newParams.set("sortBy", sortBy);
+      newParams.set("order", order);
+    }
+
+    router.push(`?${newParams.toString()}`);
+    setIsOpen(false);
+  };
+
+  const handleSortCancel = () => {
+    setTempSort(
+      sortByParam && order
+        ? `${sortByParam}-${order}`
+        : ""
+    );
+    setIsOpen(false);
+  };
 
   const getSortedProducts = () => {
     const filteredProducts = products.filter(
@@ -58,8 +94,40 @@ export function Filters({
       return filteredProducts;
 
     return filteredProducts.sort((a, b) => {
-      const valueA = a[sortByParam];
-      const valueB = b[sortByParam];
+      if (sortByParam === "createdAt") {
+        const dateA = new Date(
+          a.meta.createdAt
+        ).getTime();
+        const dateB = new Date(
+          b.meta.createdAt
+        ).getTime();
+        return order === "asc"
+          ? dateA - dateB
+          : dateB - dateA;
+      }
+
+      if (sortByParam === "discountPercentage") {
+        return order === "asc"
+          ? (a.discountPercentage || 0) -
+              (b.discountPercentage || 0)
+          : (b.discountPercentage || 0) -
+              (a.discountPercentage || 0);
+      }
+
+      const valueA =
+        a[
+          sortByParam as keyof Omit<
+            Product,
+            "meta"
+          >
+        ];
+      const valueB =
+        b[
+          sortByParam as keyof Omit<
+            Product,
+            "meta"
+          >
+        ];
 
       if (
         typeof valueA === "string" &&
@@ -76,25 +144,9 @@ export function Filters({
           ? valueA - valueB
           : valueB - valueA;
       }
+
       return 0;
     });
-  };
-
-  const handleSortChange = (value: string) => {
-    const newParams = new URLSearchParams(
-      searchParams.toString()
-    );
-    if (value === "price-asc") {
-      newParams.set("sortBy", "sku");
-      newParams.set("order", "asc");
-    } else if (value === "price-desc") {
-      newParams.set("sortBy", "sku");
-      newParams.set("order", "desc");
-    } else {
-      newParams.delete("sortBy");
-      newParams.delete("order");
-    }
-    router.push(`?${newParams.toString()}`);
   };
 
   const handlePriceFilter = (
@@ -105,55 +157,47 @@ export function Filters({
   };
 
   const sortedProducts = getSortedProducts();
+
   return (
     <div className="mb-6 space-y-4">
       <div className="flex flex-wrap gap-2">
-        <div className="relative">
-          <Select
-            value={sortByParam ?? ""}
-            onValueChange={handleSortChange}
+        <Select
+          open={isOpen}
+          onOpenChange={(open) => {
+            if (!open) return;
+            setIsOpen(open);
+          }}
+          value={tempSort}
+          onValueChange={handleSortChange}
+        >
+          <SelectTrigger className="w-[140px] h-10">
+            <span>Ordina</span>
+          </SelectTrigger>
+          <SelectContent
+            onSave={handleSortSave}
+            onCancel={handleSortCancel}
           >
-            <SelectTrigger className="w-[200px] border rounded-none">
-              <SelectValue placeholder="Ordina" />
-            </SelectTrigger>
-            <SelectContent className="border rounded-none">
-              <SelectItem
-                className="border-b rounded-none"
-                value="featured"
-              >
-                Preferiti
-              </SelectItem>
-              <SelectItem
-                className="border-b rounded-none"
-                value="latest"
-              >
-                Ultimi arrivi
-              </SelectItem>
-              <SelectItem
-                className="border-b rounded-none"
-                value="price-asc"
-              >
-                Prezzo crescente
-              </SelectItem>
-              <SelectItem
-                className="border-b rounded-none"
-                value="price-desc"
-              >
-                Prezzo decrescente
-              </SelectItem>
-              <SelectItem
-                className="rounded-none"
-                value="offers"
-              >
-                Offerte
-              </SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+            <SelectItem value="rating-desc">
+              Preferiti
+            </SelectItem>
+            <SelectItem value="createdAt-desc">
+              Ultimi arrivi
+            </SelectItem>
+            <SelectItem value="price-asc">
+              Prezzo crescente
+            </SelectItem>
+            <SelectItem value="price-desc">
+              Prezzo decrescente
+            </SelectItem>
+            <SelectItem value="discountPercentage-desc">
+              Offerte
+            </SelectItem>
+          </SelectContent>
+        </Select>
 
         <Popover>
           <PopoverTrigger asChild>
-            <button className="px-4 py-2 border flex items-center gap-2 hover:border-gray-400">
+            <button className="px-4 py-2 border flex items-center gap-2 transition-all border-black hover:bg-gray-300">
               Prezzo
               <ChevronDown className="w-4 h-4" />
             </button>
@@ -178,7 +222,7 @@ export function Filters({
         ].map((filter) => (
           <button
             key={filter}
-            className="px-4 py-2 border flex items-center gap-2 hover:border-gray-400"
+            className="px-4 py-2 border flex items-center gap-2 transition-all border-black hover:bg-gray-300"
           >
             {filter}
             <ChevronDown className="w-4 h-4" />
@@ -196,7 +240,7 @@ export function Filters({
         ].map((filter) => (
           <button
             key={filter}
-            className="px-4 py-2 border flex items-center gap-2 hover:border-gray-400"
+            className="px-4 py-2 border flex items-center gap-2 transition-all border-black hover:bg-gray-300"
           >
             {filter}
             <ChevronDown className="w-4 h-4" />

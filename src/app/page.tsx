@@ -1,5 +1,4 @@
 import { getMenProducts } from "@/services/api";
-import ProductGrid from "@/components/product-grid";
 import { Sidebar } from "@/components/sidebar";
 import { Filters } from "@/components/filters";
 import { InfoSection } from "@/components/info-section";
@@ -32,7 +31,6 @@ export default async function Page() {
         <Sidebar />
         <main className="flex-1">
           <Filters products={products} />
-          <ProductGrid products={products} />
         </main>
       </div>
 
