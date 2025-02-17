@@ -1,14 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Search,
-  Heart,
-  ShoppingBag,
-  User,
-  Globe,
-} from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Heart, ShoppingBag, User, Globe } from "lucide-react";
 import zalando from "../../public/images/zalando_logo.png";
+import Searchbar from "./searchbar";
 
 export function Navbar() {
   return (
@@ -131,12 +125,7 @@ export function Navbar() {
           </nav>
           <div className="w-50">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 border-gray-950" />
-              <Input
-                type="search"
-                placeholder="Ricerca"
-                className="w-full pl-10 h-9 border-gray-950 rounded-none"
-              />
+              <Searchbar />
             </div>
           </div>
         </div>

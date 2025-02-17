@@ -1,10 +1,31 @@
+"use client"
 import { getMenProducts } from "@/services/api";
 import { Sidebar } from "@/components/sidebar";
 import { Filters } from "@/components/filters";
 import { InfoSection } from "@/components/info-section";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Product } from "@/services/api.model";
 
-export default async function Page() {
-  const products = await getMenProducts();
+export default function Page() {
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get('search') || '';
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const allProducts = await getMenProducts();
+      const filteredProducts = searchQuery
+        ? allProducts.filter(product =>
+          product.title.toLowerCase().includes(searchQuery)
+        )
+        : allProducts;
+
+      setProducts(filteredProducts);
+    }
+
+    fetchProducts();
+  }, [searchQuery]);
 
   return (
     <div className="container mx-auto px-4 py-8">
