@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Input } from "./ui/input";
 import { Search } from "lucide-react";
 import { createQueryString } from "../../utils/createQueryString";
@@ -18,6 +18,13 @@ const Searchbar = () => {
     );
   };
 
+    const handleClear = (e: FormEvent<HTMLInputElement>) => {
+        if ((e.target as HTMLInputElement).value === "") {
+            setSearch("");
+            router.push(window.location.pathname);
+        }
+    };
+
   return (
     <form
       onSubmit={handleSearch}
@@ -31,6 +38,7 @@ const Searchbar = () => {
         onChange={(e) =>
           setSearch(e.target.value)
         }
+        onInput={(e) =>  handleClear(e)}
         className="w-full pl-10 h-9 border-gray-950 rounded-none"
       />
     </form>
