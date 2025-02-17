@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Heart, ShoppingBag, User, Globe } from "lucide-react";
+import {
+  Heart,
+  ShoppingBag,
+  User,
+  Globe,
+} from "lucide-react";
 import zalando from "../../public/images/zalando_logo.png";
 import Searchbar from "./searchbar";
 
@@ -64,61 +69,61 @@ export function Navbar() {
           <nav className="flex items-center space-x-6">
             <Link
               href="/new"
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               NEW IN
             </Link>
             <Link
               href="/abbigliamento"
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Abbigliamento
             </Link>
             <Link
               href="/scarpe"
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Scarpe
             </Link>
             <Link
               href="/accessori"
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Accessori
             </Link>
             <Link
               href="/sport"
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Sport
             </Link>
             <Link
               href="/streetwear"
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Streetwear
             </Link>
             <Link
               href="/designer"
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Designer
             </Link>
             <Link
               href="/brand"
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Brand
             </Link>
             <Link
               href="/beauty"
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Beauty
             </Link>
             <Link
               href="/promo"
-              className="text-xs font-semibold text-red-600"
+              className="text-sm font-semibold text-red-600"
             >
               PROMO
             </Link>
