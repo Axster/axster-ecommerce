@@ -16,9 +16,7 @@ export default function ProductGender() {
     <ProductPage
       fetchProducts={genderInfo.fetch}
       title={genderInfo.title}
-      breadcrumb={genderInfo.breadcrumb.join(
-        " > "
-      )}
+      breadcrumb={genderInfo.breadcrumb}
     />
   );
 }

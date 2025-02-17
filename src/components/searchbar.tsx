@@ -18,12 +18,16 @@ const Searchbar = () => {
     );
   };
 
-    const handleClear = (e: FormEvent<HTMLInputElement>) => {
-        if ((e.target as HTMLInputElement).value === "") {
-            setSearch("");
-            router.push(window.location.pathname);
-        }
-    };
+  const handleClear = (
+    e: FormEvent<HTMLInputElement>
+  ) => {
+    if (
+      (e.target as HTMLInputElement).value === ""
+    ) {
+      setSearch("");
+      router.push(window.location.pathname);
+    }
+  };
 
   return (
     <form
@@ -38,7 +42,7 @@ const Searchbar = () => {
         onChange={(e) =>
           setSearch(e.target.value)
         }
-        onInput={(e) =>  handleClear(e)}
+        onInput={(e) => handleClear(e)}
         className="w-full pl-10 h-9 border-gray-950 rounded-none"
       />
     </form>

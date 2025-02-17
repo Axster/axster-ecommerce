@@ -269,17 +269,17 @@ export const categoryApiMap: GenderCategoryMap = {
     shoes: {
       fetch: () =>
         getProductsByCategory("mens-shoes"),
-      title: "Scarpe Uomo",
+      title: "Scarpe da Uomo",
       breadcrumb: ["Uomo", "Scarpe"],
     },
     clothing: {
       fetch: () => getMenClothing(),
-      title: "Abbigliamento Uomo",
+      title: "Abbigliamento da Uomo",
       breadcrumb: ["Uomo", "Abbigliamento"],
     },
     accessories: {
       fetch: () => getMenAccessories(),
-      title: "Accessori Uomo",
+      title: "Accessori da Uomo",
       breadcrumb: ["Uomo", "Accessori"],
     },
     beauty: {
@@ -292,7 +292,7 @@ export const categoryApiMap: GenderCategoryMap = {
         getProductsByCategory(
           "sports-accessories"
         ),
-      title: "Sport Uomo",
+      title: "Sport da Uomo",
       breadcrumb: ["Uomo", "Sport"],
     },
   },
@@ -300,17 +300,17 @@ export const categoryApiMap: GenderCategoryMap = {
     shoes: {
       fetch: () =>
         getProductsByCategory("womens-shoes"),
-      title: "Scarpe Donna",
+      title: "Scarpe da Donna",
       breadcrumb: ["Donna", "Scarpe"],
     },
     clothing: {
       fetch: () => getWomenClothing(),
-      title: "Abbigliamento Donna",
+      title: "Abbigliamento da Donna",
       breadcrumb: ["Donna", "Abbigliamento"],
     },
     accessories: {
       fetch: () => getWomenAccessories(),
-      title: "Accessori Donna",
+      title: "Accessori da Donna",
       breadcrumb: ["Donna", "Accessori"],
     },
     beauty: {
@@ -323,7 +323,7 @@ export const categoryApiMap: GenderCategoryMap = {
         getProductsByCategory(
           "sports-accessories"
         ),
-      title: "Sport Donna",
+      title: "Sport da Donna",
       breadcrumb: ["Donna", "Sport"],
     },
   },

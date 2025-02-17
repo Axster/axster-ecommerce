@@ -18,9 +18,7 @@ export default function ProductCategory() {
     <ProductPage
       fetchProducts={categoryInfo.fetch}
       title={categoryInfo.title}
-      breadcrumb={categoryInfo.breadcrumb.join(
-        " > "
-      )}
+      breadcrumb={categoryInfo.breadcrumb}
     />
   );
 }
