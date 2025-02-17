@@ -81,3 +81,31 @@ export type ProductsResponse = {
   total: number;
   products: Product[];
 };
+
+export type CategoryRouteData = {
+  fetch: () => Promise<Product[]>;
+  title: string;
+  breadcrumb: string[];
+};
+
+export type GenderRoutes =
+  | "men"
+  | "women"
+  | "children";
+export type Categoryroutes =
+  | "shoes"
+  | "clothing"
+  | "accessories"
+  | "sport"
+  | "beauty";
+
+export type GenderCategoryMap = Record<
+  GenderRoutes,
+  Record<Categoryroutes, CategoryRouteData>
+>;
+
+export type GenderApiMap = Record<
+  GenderRoutes,
+  CategoryRouteData
+>;
+export type CategoryApiMap = GenderCategoryMap;

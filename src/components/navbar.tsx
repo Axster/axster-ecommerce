@@ -1,10 +1,20 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Heart, ShoppingBag, User, Globe } from "lucide-react";
+import {
+  Heart,
+  ShoppingBag,
+  User,
+  Globe,
+} from "lucide-react";
 import zalando from "../../public/images/zalando_logo.png";
 import Searchbar from "./searchbar";
+import { GenderParams } from "@/app/[gender]/gender.types";
+import { useParams } from "next/navigation";
 
 export function Navbar() {
+  const { gender } = useParams<GenderParams>();
+
   return (
     <header className="border-b">
       <div className="container mx-auto">
@@ -12,20 +22,20 @@ export function Navbar() {
         <div className="flex items-center justify-between h-14 px-4">
           <nav className="flex items-center space-x-6">
             <Link
-              href="/donna"
-              className="text-sm font-extrabold hover:underline"
+              href="/women"
+              className={`text-sm font-extrabold ${gender === "women" ? "text-white bg-black px-4 py-1" : "hover:underline"}`}
             >
               Donna
             </Link>
             <Link
-              href="/uomo"
-              className="text-sm font-extrabold text-white bg-black px-4 py-1"
+              href="/men"
+              className={`text-sm font-extrabold ${gender === "men" ? "text-white bg-black px-4 py-1" : "hover:underline"}`}
             >
               Uomo
             </Link>
             <Link
-              href="/bambini"
-              className="text-sm  font-extrabold hover:underline"
+              href="/children"
+              className={`text-sm font-extrabold ${gender === "children" ? "text-white bg-black px-4 py-1" : "hover:underline"}`}
             >
               Bambini
             </Link>
@@ -63,61 +73,61 @@ export function Navbar() {
         <div className="flex items-center justify-between h-12 px-4">
           <nav className="flex items-center space-x-6">
             <Link
-              href="/new"
+              href={`/${gender}/new`}
               className="text-xs font-semibold"
             >
               NEW IN
             </Link>
             <Link
-              href="/abbigliamento"
+              href={`/${gender}/clothing`}
               className="text-xs font-semibold"
             >
               Abbigliamento
             </Link>
             <Link
-              href="/scarpe"
+              href={`/${gender}/shoes`}
               className="text-xs font-semibold"
             >
               Scarpe
             </Link>
             <Link
-              href="/accessori"
+              href={`/${gender}/accessories`}
               className="text-xs font-semibold"
             >
               Accessori
             </Link>
             <Link
-              href="/sport"
+              href={`/${gender}/sport`}
               className="text-xs font-semibold"
             >
               Sport
             </Link>
             <Link
-              href="/streetwear"
+              href={`/${gender}/streetwear`}
               className="text-xs font-semibold"
             >
               Streetwear
             </Link>
             <Link
-              href="/designer"
+              href={`/${gender}/designer`}
               className="text-xs font-semibold"
             >
               Designer
             </Link>
             <Link
-              href="/brand"
+              href={`/${gender}/brand`}
               className="text-xs font-semibold"
             >
               Brand
             </Link>
             <Link
-              href="/beauty"
+              href={`/${gender}/beauty`}
               className="text-xs font-semibold"
             >
               Beauty
             </Link>
             <Link
-              href="/promo"
+              href={`/${gender}/promo`}
               className="text-xs font-semibold text-red-600"
             >
               PROMO
