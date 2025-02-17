@@ -1,4 +1,7 @@
-import { getProductById, getProductsByCategory } from "@/services/api";
+import {
+  getProductById,
+  getProductsByCategory,
+} from "@/services/api";
 import { ProductGallery } from "@/components/product-gallery";
 import { ProductInfo } from "@/components/product-info";
 import { SimilarProducts } from "@/components/similar-products";
@@ -9,9 +12,17 @@ interface ProductPageProps {
   };
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
-  const product = await getProductById(Number.parseInt(params.id));
-  const similarProducts = await getProductsByCategory(product.category, {limit:8});
+export default async function ProductPage({
+  params,
+}: ProductPageProps) {
+  const product = await getProductById(
+    Number.parseInt(params.id)
+  );
+  const similarProducts =
+    await getProductsByCategory(
+      product.category,
+      { limit: 8 }
+    );
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -19,7 +30,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <ProductGallery images={product.images} />
         <ProductInfo product={product} />
       </div>
-      <SimilarProducts products={similarProducts} />
+      <SimilarProducts
+        products={similarProducts}
+      />
     </div>
   );
 }

@@ -1,4 +1,3 @@
-
 type Review = {
   rating: number;
   comment: string;
@@ -46,12 +45,12 @@ export type Product = {
 };
 
 export type Filters = Partial<{
-limit: number;
-skip: number;
-q: string; //search
-select: string; //to select specific terms of each product
-sortBy: keyof Product;
-order: "asc" | "desc";
+  limit: number;
+  skip: number;
+  q: string; //search
+  select: string; //to select specific terms of each product
+  sortBy: keyof Product;
+  order: "asc" | "desc";
 }>;
 
 export type Category = {
@@ -76,10 +75,9 @@ export type CategoryKey =
   | "mens-shoes"
   | "mens-watches";
 
-  export type ProductsResponse = {
-    limit: number;
-    skip: number;
-    total: number;
-    products: Product[];
-  };
-
+export type ProductsResponse = {
+  limit: number;
+  skip: number;
+  total: number;
+  products: Product[];
+};

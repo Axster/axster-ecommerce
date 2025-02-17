@@ -17,46 +17,73 @@ import {
 } from "@/components/ui/popover";
 import { PriceFilter } from "./price-filter";
 import ProductGrid from "./product-grid";
-import { useRouter, useSearchParams } from "next/navigation";
+import {
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 
 interface FiltersProps {
   products: Product[];
 }
 
-export function Filters({ products }: FiltersProps) {
-  const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({
+export function Filters({
+  products,
+}: FiltersProps) {
+  const [priceRange, setPriceRange] = useState<{
+    min: number;
+    max: number;
+  }>({
     min: 4,
     max: 9500,
   });
 
   const router = useRouter();
   const searchParams = useSearchParams();
-  const sortByParam = searchParams.get("sortBy") as keyof Product | null;
-  const order = searchParams.get("order") as "asc" | "desc" | null;
+  const sortByParam = searchParams.get(
+    "sortBy"
+  ) as keyof Product | null;
+  const order = searchParams.get("order") as
+    | "asc"
+    | "desc"
+    | null;
 
   const getSortedProducts = () => {
     const filteredProducts = products.filter(
       (product) =>
-        product.price >= priceRange.min && product.price <= priceRange.max
+        product.price >= priceRange.min &&
+        product.price <= priceRange.max
     );
 
-    if (!sortByParam || !order) return filteredProducts;
+    if (!sortByParam || !order)
+      return filteredProducts;
 
     return filteredProducts.sort((a, b) => {
       const valueA = a[sortByParam];
       const valueB = b[sortByParam];
 
-      if (typeof valueA === "string" && typeof valueB === "string") {
-        return order === "asc" ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
-      } else if (typeof valueA === "number" && typeof valueB === "number") {
-        return order === "asc" ? valueA - valueB : valueB - valueA;
+      if (
+        typeof valueA === "string" &&
+        typeof valueB === "string"
+      ) {
+        return order === "asc"
+          ? valueA.localeCompare(valueB)
+          : valueB.localeCompare(valueA);
+      } else if (
+        typeof valueA === "number" &&
+        typeof valueB === "number"
+      ) {
+        return order === "asc"
+          ? valueA - valueB
+          : valueB - valueA;
       }
       return 0;
     });
   };
 
   const handleSortChange = (value: string) => {
-    const newParams = new URLSearchParams(searchParams.toString());
+    const newParams = new URLSearchParams(
+      searchParams.toString()
+    );
     if (value === "price-asc") {
       newParams.set("sortBy", "sku");
       newParams.set("order", "asc");
@@ -70,7 +97,10 @@ export function Filters({ products }: FiltersProps) {
     router.push(`?${newParams.toString()}`);
   };
 
-  const handlePriceFilter = (min: number, max: number) => {
+  const handlePriceFilter = (
+    min: number,
+    max: number
+  ) => {
     setPriceRange({ min, max });
   };
 
@@ -79,24 +109,42 @@ export function Filters({ products }: FiltersProps) {
     <div className="mb-6 space-y-4">
       <div className="flex flex-wrap gap-2">
         <div className="relative">
-          <Select value={sortByParam ?? ""} onValueChange={handleSortChange}>
+          <Select
+            value={sortByParam ?? ""}
+            onValueChange={handleSortChange}
+          >
             <SelectTrigger className="w-[200px] border rounded-none">
               <SelectValue placeholder="Ordina" />
             </SelectTrigger>
             <SelectContent className="border rounded-none">
-              <SelectItem className="border-b rounded-none" value="featured">
+              <SelectItem
+                className="border-b rounded-none"
+                value="featured"
+              >
                 Preferiti
               </SelectItem>
-              <SelectItem className="border-b rounded-none" value="latest">
+              <SelectItem
+                className="border-b rounded-none"
+                value="latest"
+              >
                 Ultimi arrivi
               </SelectItem>
-              <SelectItem className="border-b rounded-none" value="price-asc">
+              <SelectItem
+                className="border-b rounded-none"
+                value="price-asc"
+              >
                 Prezzo crescente
               </SelectItem>
-              <SelectItem className="border-b rounded-none" value="price-desc">
+              <SelectItem
+                className="border-b rounded-none"
+                value="price-desc"
+              >
                 Prezzo decrescente
               </SelectItem>
-              <SelectItem className="rounded-none" value="offers">
+              <SelectItem
+                className="rounded-none"
+                value="offers"
+              >
                 Offerte
               </SelectItem>
             </SelectContent>
@@ -110,12 +158,24 @@ export function Filters({ products }: FiltersProps) {
               <ChevronDown className="w-4 h-4" />
             </button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="start">
-            <PriceFilter onClose={() => { }} onApply={handlePriceFilter} />
+          <PopoverContent
+            className="w-auto p-0"
+            align="start"
+          >
+            <PriceFilter
+              onClose={() => {}}
+              onApply={handlePriceFilter}
+            />
           </PopoverContent>
         </Popover>
 
-        {["Brand", "Taglia", "Colore", "Novità", "Materiale"].map((filter) => (
+        {[
+          "Brand",
+          "Taglia",
+          "Colore",
+          "Novità",
+          "Materiale",
+        ].map((filter) => (
           <button
             key={filter}
             className="px-4 py-2 border flex items-center gap-2 hover:border-gray-400"
@@ -127,17 +187,21 @@ export function Filters({ products }: FiltersProps) {
       </div>
 
       <div className="flex flex-wrap gap-2">
-        {["Lunghezza", "Fantasia", "Linea", "Tipo prodotto", "Consegna"].map(
-          (filter) => (
-            <button
-              key={filter}
-              className="px-4 py-2 border flex items-center gap-2 hover:border-gray-400"
-            >
-              {filter}
-              <ChevronDown className="w-4 h-4" />
-            </button>
-          ),
-        )}
+        {[
+          "Lunghezza",
+          "Fantasia",
+          "Linea",
+          "Tipo prodotto",
+          "Consegna",
+        ].map((filter) => (
+          <button
+            key={filter}
+            className="px-4 py-2 border flex items-center gap-2 hover:border-gray-400"
+          >
+            {filter}
+            <ChevronDown className="w-4 h-4" />
+          </button>
+        ))}
       </div>
       <ProductGrid products={sortedProducts} />
     </div>

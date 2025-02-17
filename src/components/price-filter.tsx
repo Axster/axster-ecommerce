@@ -12,25 +12,42 @@ interface PriceFilterProps {
   onApply: (min: number, max: number) => void;
 }
 
-export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
-  const [minPrice, setMinPrice] = React.useState(1);
-  const [maxPrice, setMaxPrice] = React.useState(3000);
-  const [sliderValues, setSliderValues] = React.useState([minPrice, maxPrice]);
+export function PriceFilter({
+  onClose,
+  onApply,
+}: PriceFilterProps) {
+  const [minPrice, setMinPrice] =
+    React.useState(1);
+  const [maxPrice, setMaxPrice] =
+    React.useState(3000);
+  const [sliderValues, setSliderValues] =
+    React.useState([minPrice, maxPrice]);
 
-  const handleSliderChange = (values: number[]) => {
+  const handleSliderChange = (
+    values: number[]
+  ) => {
     setSliderValues(values);
     setMinPrice(values[0]);
     setMaxPrice(values[1]);
   };
 
-  const handleInputChange = (value: string, type: "min" | "max") => {
+  const handleInputChange = (
+    value: string,
+    type: "min" | "max"
+  ) => {
     const numValue = Number.parseInt(value) || 0;
     if (type === "min") {
       setMinPrice(numValue);
-      setSliderValues([numValue, sliderValues[1]]);
+      setSliderValues([
+        numValue,
+        sliderValues[1],
+      ]);
     } else {
       setMaxPrice(numValue);
-      setSliderValues([sliderValues[0], numValue]);
+      setSliderValues([
+        sliderValues[0],
+        numValue,
+      ]);
     }
   };
 
@@ -45,7 +62,10 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
         {/* Price inputs */}
         <div className="flex gap-1">
           <div className="flex-1">
-            <Label htmlFor="min-price" className="text-sm">
+            <Label
+              htmlFor="min-price"
+              className="text-sm"
+            >
               Prezzo da
             </Label>
             <div className="relative">
@@ -53,7 +73,12 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
                 id="min-price"
                 type="number"
                 value={minPrice}
-                onChange={(e) => handleInputChange(e.target.value, "min")}
+                onChange={(e) =>
+                  handleInputChange(
+                    e.target.value,
+                    "min"
+                  )
+                }
                 className="pr-6"
               />
               <span className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -62,7 +87,10 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
             </div>
           </div>
           <div className="flex-1">
-            <Label htmlFor="max-price" className="text-sm">
+            <Label
+              htmlFor="max-price"
+              className="text-sm"
+            >
               Prezzo fino a
             </Label>
             <div className="relative">
@@ -70,7 +98,12 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
                 id="max-price"
                 type="number"
                 value={maxPrice}
-                onChange={(e) => handleInputChange(e.target.value, "max")}
+                onChange={(e) =>
+                  handleInputChange(
+                    e.target.value,
+                    "max"
+                  )
+                }
                 className="pr-6"
               />
               <span className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -99,14 +132,20 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
         {/* Switches */}
         <div className="space-y-1">
           <div className="flex items-center justify-between">
-            <Label htmlFor="offers" className="text-sm font-normal">
+            <Label
+              htmlFor="offers"
+              className="text-sm font-normal"
+            >
               Offerte
             </Label>
             <Switch id="offers" />
           </div>
           <div className="space-y-1">
             <div className="flex items-center justify-between">
-              <Label htmlFor="free-shipping" className="text-sm font-normal">
+              <Label
+                htmlFor="free-shipping"
+                className="text-sm font-normal"
+              >
                 Spedizione gratuita
               </Label>
               <Switch id="free-shipping" />
@@ -119,7 +158,11 @@ export function PriceFilter({ onClose, onApply }: PriceFilterProps) {
 
         {/* Actions */}
         <div className="flex gap-2 pt-1 border-t">
-          <Button variant="ghost" className="flex-1" onClick={onClose}>
+          <Button
+            variant="ghost"
+            className="flex-1"
+            onClick={onClose}
+          >
             Annulla
           </Button>
           <Button
