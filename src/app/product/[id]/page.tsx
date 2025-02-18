@@ -26,7 +26,7 @@ export default async function ProductPage({
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
+      <div className="grid md:grid-cols-2 gap-1 mb-12">
         <ProductGallery images={product.images} />
         <ProductInfo product={product} />
       </div>
