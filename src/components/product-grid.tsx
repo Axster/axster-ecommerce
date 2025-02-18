@@ -1,8 +1,11 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart } from "lucide-react";
 import type { Product } from "@/services/api.model";
 import NoImage from "../../public/images/no_image_placeholder.png";
+import { GenderParams } from "@/app/[gender]/gender.types";
+import { useParams } from "next/navigation";
 
 interface ProductGridProps {
   products: Product[];
@@ -11,12 +14,14 @@ interface ProductGridProps {
 export default function ProductGrid({
   products,
 }: ProductGridProps) {
+  const { gender } = useParams<GenderParams>();
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
       {products.map((product) => (
         <Link
           key={product.id}
-          href={`/product/${product.id}`}
+          href={`/${gender}/product/${product.id}`}
           className="group block"
         >
           <div className="flex flex-col">

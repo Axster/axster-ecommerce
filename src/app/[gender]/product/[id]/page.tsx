@@ -1,10 +1,10 @@
+import { ProductGallery } from "@/components/product-gallery";
+import { ProductInfo } from "@/components/product-info";
+import { SimilarProducts } from "@/components/similar-products";
 import {
   getProductById,
   getProductsByCategory,
 } from "@/services/api";
-import { ProductGallery } from "@/components/product-gallery";
-import { ProductInfo } from "@/components/product-info";
-import { SimilarProducts } from "@/components/similar-products";
 
 interface ProductPageProps {
   params: {
