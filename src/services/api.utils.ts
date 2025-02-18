@@ -82,15 +82,23 @@ export const categories: Record<
   },
 };
 
-export const SubCategoryTitles: Record<string, string> = {
+export const SubCategoryTitles: Record<
+  string,
+  string
+> = {
   "t-shirt-and-polo": "T-shirt e polo",
-  "shirts": "Camicie",
+  shirts: "Camicie",
   "knitwear-and-sweatshirts": "Maglieria e Felpe",
-  "sports": "Sport",
-  "dresses": "Vestiti",
-  "bags": "Borse",
-  "jewellery": "Gioielli",
-  "shoes": "Scarpe",
-  "watches": "Orologi",
+  sports: "Sport",
+  dresses: "Vestiti",
+  bags: "Borse",
+  jewellery: "Gioielli",
+  shoes: "Scarpe",
+  watches: "Orologi",
 };
 
+export const promoQuery = {
+  sortBy: "discountPercentage",
+  order: "desc",
+  limit: 10,
+};

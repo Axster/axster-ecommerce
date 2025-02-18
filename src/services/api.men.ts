@@ -1,7 +1,10 @@
 import { createQueryString } from "../../utils/createQueryString";
 import { api } from "./api";
 import { Filters, Product } from "./api.model";
-import { categories } from "./api.utils";
+import {
+  categories,
+  promoQuery,
+} from "./api.utils";
 
 export const getMenProducts = async (
   filters?: Filters
@@ -82,4 +85,27 @@ export const getMenBeauty = async (
   return responses.flatMap(
     (response) => response.data.products
   ) as Product[];
+};
+
+export const getMenPromo = async () => {
+  const query = `?${createQueryString(promoQuery)}`;
+  const responses = await Promise.all([
+    api.get(
+      `${categories["mens-shirts"].url}${query}`
+    ),
+    api.get(
+      `${categories["mens-shoes"].url}${query}`
+    ),
+    api.get(
+      `${categories["mens-watches"].url}${query}`
+    ),
+  ]);
+
+  return (
+    responses.flatMap(
+      (response) => response.data.products
+    ) as Product[]
+  ).filter(
+    (p) => Number(p.discountPercentage) >= 14
+  );
 };

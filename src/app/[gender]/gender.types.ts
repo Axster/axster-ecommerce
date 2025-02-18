@@ -6,6 +6,6 @@ import {
 
 export type GenderParams = {
   gender: GenderRoutes;
-  category: Categoryroutes;
+  category: Categoryroutes | "promo";
   subcategory: CategoryKey;
 };

@@ -6,17 +6,21 @@ import { GenderParams } from "../../gender.types";
 import { SubCategoryTitles } from "@/services/api.utils";
 
 export default function SubCategory() {
-  const { gender, category, subcategory } = useParams<GenderParams>();
-    const subCategoryTitle = SubCategoryTitles[category];
+  const { gender, category, subcategory } =
+    useParams<GenderParams>();
+  const subCategoryTitle =
+    SubCategoryTitles[category];
 
-    if (!subcategory) {
+  if (!subcategory) {
     return <p>Sottocategoria Non trovata</p>;
   }
 
   return (
     <ProductPage
-        fetchProducts={() => getProductsByCategory(subcategory)}
-        title={subCategoryTitle}
+      fetchProducts={() =>
+        getProductsByCategory(subcategory)
+      }
+      title={subCategoryTitle}
       breadcrumb={[gender, subCategoryTitle]}
     />
   );

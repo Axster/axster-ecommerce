@@ -18,18 +18,21 @@ import {
   getChildrenClothing,
   getChildrenAccessories,
   getChildrenBeauty,
+  getChildrenPromo,
 } from "./api.children";
 import {
   getMenProducts,
   getMenClothing,
   getMenAccessories,
   getMenBeauty,
+  getMenPromo,
 } from "./api.men";
 import {
   getWomenProducts,
   getWomenClothing,
   getWomenAccessories,
   getWomenBeauty,
+  getWomenPromo,
 } from "./api.women";
 
 export const api = axios.create({
@@ -132,6 +135,11 @@ export const categoryApiMap: GenderCategoryMap = {
       title: "Sport da Uomo",
       breadcrumb: ["Uomo", "Sport"],
     },
+    promo: {
+      fetch: () => getMenPromo(),
+      title: "Promo uomo",
+      breadcrumb: ["Uomo", "Promo"],
+    },
   },
   women: {
     shoes: {
@@ -163,6 +171,11 @@ export const categoryApiMap: GenderCategoryMap = {
       title: "Sport da Donna",
       breadcrumb: ["Donna", "Sport"],
     },
+    promo: {
+      fetch: () => getWomenPromo(),
+      title: "Promo uomo",
+      breadcrumb: ["Uomo", "Promo"],
+    },
   },
   children: {
     shoes: {
@@ -193,6 +206,11 @@ export const categoryApiMap: GenderCategoryMap = {
         ),
       title: "Sport Bambino",
       breadcrumb: ["Bambino", "Sport"],
+    },
+    promo: {
+      fetch: () => getChildrenPromo(),
+      title: "Promo uomo",
+      breadcrumb: ["Uomo", "Promo"],
     },
   },
 };

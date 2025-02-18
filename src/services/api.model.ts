@@ -59,7 +59,6 @@ export type Category = {
   url: string;
 };
 
-
 export enum CategoryKeyEnum {
   Beauty = "beauty",
   Fragrances = "fragrances",
@@ -74,7 +73,7 @@ export enum CategoryKeyEnum {
   WomensWatches = "womens-watches",
   MensShirts = "mens-shirts",
   MensShoes = "mens-shoes",
-  MensWatches = "mens-watches"
+  MensWatches = "mens-watches",
 }
 export type CategoryKey = `${CategoryKeyEnum}`;
 
@@ -100,7 +99,8 @@ export type Categoryroutes =
   | "clothing"
   | "accessories"
   | "sport"
-  | "beauty";
+  | "beauty"
+  | "promo";
 
 export type GenderCategoryMap = Record<
   GenderRoutes,
@@ -112,4 +112,3 @@ export type GenderApiMap = Record<
   CategoryRouteData
 >;
 export type CategoryApiMap = GenderCategoryMap;
-
