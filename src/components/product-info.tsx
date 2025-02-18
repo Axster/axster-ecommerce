@@ -14,6 +14,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  standardDelivery,
+  standardDeliveryEnd,
+} from "../../utils/shippingDate";
 
 interface ProductInfoProps {
   product: Product;
@@ -22,17 +26,6 @@ interface ProductInfoProps {
 export function ProductInfo({
   product,
 }: ProductInfoProps) {
-  // Calcola le date di consegna
-  const today = new Date();
-  const standardDelivery = new Date(today);
-  standardDelivery.setDate(today.getDate() + 4);
-  const standardDeliveryEnd = new Date(
-    standardDelivery
-  );
-  standardDeliveryEnd.setDate(
-    standardDelivery.getDate() + 1
-  );
-
   return (
     <div className="space-y-6">
       <div>

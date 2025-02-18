@@ -7,6 +7,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import NoImage from "../../public/images/no_image_placeholder.png";
 
 interface ProductGalleryProps {
   images: string[];
@@ -61,7 +62,7 @@ export function ProductGallery({
                 hover:border-gray-400 transition-colors`}
             >
               <Image
-                src={image || "/placeholder.svg"}
+                src={image || NoImage}
                 alt={`Product thumbnail ${index + 1}`}
                 fill
                 sizes="400px"
@@ -82,16 +83,13 @@ export function ProductGallery({
       </div>
 
       {/* Main image */}
-      <div className="relative flex-1 aspect-square">
+      <div className="relative flex-1 aspect-square bg-cover rounded-lg overflow-hidden">
         <Image
-          src={
-            images[selectedImage] ||
-            "/placeholder.svg"
-          }
+          src={images[selectedImage] || NoImage}
           alt="Product image"
           fill
-          sizes="800px"
-          className="object-cover rounded-lg"
+          sizes="(max-width: 800px) 100vw, 800px"
+          className="w-full h-full object-cover"
           priority
         />
       </div>

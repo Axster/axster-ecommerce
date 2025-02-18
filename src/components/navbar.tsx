@@ -74,61 +74,61 @@ export function Navbar() {
           <nav className="flex items-center space-x-6">
             <Link
               href={`/${gender}/new`}
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               NEW IN
             </Link>
             <Link
               href={`/${gender}/clothing`}
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Abbigliamento
             </Link>
             <Link
               href={`/${gender}/shoes`}
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Scarpe
             </Link>
             <Link
               href={`/${gender}/accessories`}
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Accessori
             </Link>
             <Link
               href={`/${gender}/sport`}
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Sport
             </Link>
             <Link
               href={`/${gender}/streetwear`}
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Streetwear
             </Link>
             <Link
               href={`/${gender}/designer`}
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Designer
             </Link>
             <Link
               href={`/${gender}/brand`}
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Brand
             </Link>
             <Link
               href={`/${gender}/beauty`}
-              className="text-xs font-semibold"
+              className="text-sm font-semibold"
             >
               Beauty
             </Link>
             <Link
               href={`/${gender}/promo`}
-              className="text-xs font-semibold text-red-600"
+              className="text-sm font-semibold text-red-600"
             >
               PROMO
             </Link>
