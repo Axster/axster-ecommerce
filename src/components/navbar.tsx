@@ -20,7 +20,7 @@ export function Navbar() {
       <div className="container mx-auto">
         {/* Top navigation */}
         <div className="flex items-center justify-between h-14 px-4">
-          <nav className="flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-6">
             <Link
               href="/women"
               className={`text-sm font-extrabold ${gender === "women" ? "text-white bg-black px-4 py-1" : "hover:underline"}`}
@@ -52,7 +52,7 @@ export function Navbar() {
               className="h-7 w-auto"
             />
           </Link>
-          <div className="flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-6">
             <div className="flex items-center gap-1">
               <Globe className="w-4 h-4" />
               <span className="text-sm">IT</span>
@@ -74,7 +74,7 @@ export function Navbar() {
           <nav className="flex items-center space-x-6">
             <Link
               href={`/${gender}/new`}
-              className="text-sm font-semibold"
+              className="text-sm font-semibold whitespace-nowrap"
             >
               NEW IN
             </Link>
@@ -86,49 +86,49 @@ export function Navbar() {
             </Link>
             <Link
               href={`/${gender}/shoes`}
-              className="text-sm font-semibold"
+              className="text-sm font-semibold pr-4 md:pr-0"
             >
               Scarpe
             </Link>
             <Link
               href={`/${gender}/accessories`}
-              className="text-sm font-semibold"
+              className="text-sm font-semibold hidden md:inline"
             >
               Accessori
             </Link>
             <Link
               href={`/${gender}/sport`}
-              className="text-sm font-semibold"
+              className="text-sm font-semibold hidden md:inline"
             >
               Sport
             </Link>
             <Link
               href={`/${gender}/streetwear`}
-              className="text-sm font-semibold"
+              className="text-sm font-semibold hidden lg:inline"
             >
               Streetwear
             </Link>
             <Link
               href={`/${gender}/designer`}
-              className="text-sm font-semibold"
+              className="text-sm font-semibold hidden lg:inline"
             >
               Designer
             </Link>
             <Link
               href={`/${gender}/brand`}
-              className="text-sm font-semibold"
+              className="text-sm font-semibold hidden lg:inline"
             >
               Brand
             </Link>
             <Link
               href={`/${gender}/beauty`}
-              className="text-sm font-semibold"
+              className="text-sm font-semibold hidden lg:inline"
             >
               Beauty
             </Link>
             <Link
               href={`/${gender}/promo`}
-              className="text-sm font-semibold text-red-600"
+              className="text-sm font-semibold text-red-600 hidden xl:inline"
             >
               PROMO
             </Link>
