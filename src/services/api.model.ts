@@ -112,3 +112,4 @@ export type GenderApiMap = Record<
   CategoryRouteData
 >;
 export type CategoryApiMap = GenderCategoryMap;
+

@@ -15,7 +15,7 @@ export function Sidebar() {
       { name: "Sport", route: `/${gender}/sports/${CategoryKeyEnum.SportsAccessories}` },
     ],
     women: [
-      { name: "Abbigliamento", isTitle: true, route: `/${gender}` },
+      { name: "Abbigliamento", route: `/${gender}` },
       { name: "Vestiti", route: `/${gender}/dresses/${CategoryKeyEnum.WomensDresses}` },
       { name: "Borse", route: `/${gender}/bags/${CategoryKeyEnum.WomensBags}` },
       { name: "Gioielli", route: `/${gender}/jewellery/${CategoryKeyEnum.WomensJewellery}` },
@@ -23,7 +23,7 @@ export function Sidebar() {
       { name: "Orologi", route: `/${gender}/watches/${CategoryKeyEnum.WomensWatches}` },
     ],
     children: [
-      { name: "Abbigliamento", isTitle: true, route: `/${gender}` },
+      { name: "Abbigliamento", route: `/${gender}` },
       { name: "T-shirt e polo", route: `/${gender}/t-shirt-and-polo/${CategoryKeyEnum.MensShirts}` },
       { name: "Maglieria e Felpe", route: `/${gender}/knitwear-and-sweatshirts/${CategoryKeyEnum.MensShirts}` },
       { name: "Sport", route: `/${gender}/sports/${CategoryKeyEnum.SportsAccessories}` },

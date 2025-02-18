@@ -82,19 +82,15 @@ export const categories: Record<
   },
 };
 
-export const categoriesTitle: Record<CategoryKey, string> = {
-  beauty: "Beauty",
-  fragrances: "Profumi",
-  "skin-care": "Cura della pelle",
-  "sports-accessories": "Accessori sportivi",
-  sunglasses: "Occhiali da sole",
-  tops: "Top",
-  "womens-bags": "Borse",
-  "womens-dresses": "Vestiti",
-  "womens-jewellery": "Gioielli",
-  "womens-shoes": "Scarpe",
-  "womens-watches": "Orologi",
-  "mens-shirts": "Camicie",
-  "mens-shoes": "Scarpe",
-  "mens-watches": "Orologi",
+export const SubCategoryTitles: Record<string, string> = {
+  "t-shirt-and-polo": "T-shirt e polo",
+  "shirts": "Camicie",
+  "knitwear-and-sweatshirts": "Maglieria e Felpe",
+  "sports": "Sport",
+  "dresses": "Vestiti",
+  "bags": "Borse",
+  "jewellery": "Gioielli",
+  "shoes": "Scarpe",
+  "watches": "Orologi",
 };
+
