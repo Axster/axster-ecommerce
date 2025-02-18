@@ -30,6 +30,11 @@ export function ProductInfo({
     <div className="space-y-6">
       <div>
         <div className="mb-2">
+          {/* {product.discountPercentage > 14 && (
+            <div className="absolute font-bold top-200 left-40 sm:left-56 lg:left-64 bg-[rgb(217,0,12)] text-white text-xs p-1">
+              Promo
+            </div>
+          )} */}
           <h2 className="text-2xl font-bold">
             PME Legend
           </h2>
@@ -38,22 +43,56 @@ export function ProductInfo({
           </h1>
         </div>
         <div className="flex items-baseline gap-2">
-          <span className="text-2xl font-bold">
-            {product.price}€
-          </span>
-          <span className="text-sm text-gray-500">
-            IVA inclusa
-          </span>
+          {product.discountPercentage > 14 ? (
+            <div className="space-y-0.5">
+              <p className="font-bold text-[rgb(217,0,12)]">
+                {(
+                  product.price *
+                  (1 -
+                    product.discountPercentage /
+                      100)
+                ).toFixed(2)}{" "}
+                €{" "}
+                <span className="text-sm font-normal text-gray-500 pl-2">
+                  IVA inclusa
+                </span>
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Prezzo ordinario:{" "}
+                <span className="line-through">
+                  {product.price.toFixed(2)} €
+                </span>{" "}
+                <span className=" text-[rgb(217,0,12)]">
+                  Fino a -
+                  {Math.round(
+                    product.discountPercentage
+                  )}
+                  %
+                </span>
+              </p>
+            </div>
+          ) : (
+            <>
+              <p className="text-2xl">
+                {product.price.toFixed(2)} €
+                <span className="text-sm text-gray-500 pl-2">
+                  IVA inclusa
+                </span>
+              </p>
+            </>
+          )}
         </div>
       </div>
 
       <div className="space-y-4">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-medium">
+            <span className="font-medium text-sm">
               Colore:
             </span>
-            <span>buckthorne brown</span>
+            <span className="font-bold text-sm">
+              buckthorne brown
+            </span>
           </div>
 
           <div className="space-y-2">
@@ -83,10 +122,14 @@ export function ProductInfo({
         </div>
 
         <div className="flex gap-2">
-          <Button className="flex-1 bg-black text-white hover:bg-black/90">
+          <Button className="flex-1 font-bold bg-black text-white hover:bg-black/90 rounded-none">
             Aggiungi al carrello
           </Button>
-          <Button variant="outline" size="icon">
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-none border-black"
+          >
             <Heart className="w-5 h-5" />
           </Button>
         </div>
@@ -103,7 +146,7 @@ export function ProductInfo({
             </p>
           </div>
 
-          <div className="space-y-4 border rounded-md divide-y">
+          <div className="space-y-4 border divide-y">
             {/* Consegna veloce */}
             <div className="p-4">
               <div className="flex justify-between items-center mb-1">

@@ -42,7 +42,7 @@ export function Navbar() {
           </nav>
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2"
+            className="flex items-start md:items-center space-x-6"
           >
             <Image
               src={zalando}
@@ -52,7 +52,7 @@ export function Navbar() {
               className="h-7 w-auto"
             />
           </Link>
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="flex items-center space-x-6">
             <div className="flex items-center gap-1">
               <Globe className="w-4 h-4" />
               <span className="text-sm">IT</span>
