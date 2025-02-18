@@ -59,21 +59,24 @@ export type Category = {
   url: string;
 };
 
-export type CategoryKey =
-  | "beauty"
-  | "fragrances"
-  | "skin-care"
-  | "sports-accessories"
-  | "sunglasses"
-  | "tops"
-  | "womens-bags"
-  | "womens-dresses"
-  | "womens-jewellery"
-  | "womens-shoes"
-  | "womens-watches"
-  | "mens-shirts"
-  | "mens-shoes"
-  | "mens-watches";
+
+export enum CategoryKeyEnum {
+  Beauty = "beauty",
+  Fragrances = "fragrances",
+  SkinCare = "skin-care",
+  SportsAccessories = "sports-accessories",
+  Sunglasses = "sunglasses",
+  Tops = "tops",
+  WomensBags = "womens-bags",
+  WomensDresses = "womens-dresses",
+  WomensJewellery = "womens-jewellery",
+  WomensShoes = "womens-shoes",
+  WomensWatches = "womens-watches",
+  MensShirts = "mens-shirts",
+  MensShoes = "mens-shoes",
+  MensWatches = "mens-watches"
+}
+export type CategoryKey = `${CategoryKeyEnum}`;
 
 export type ProductsResponse = {
   limit: number;

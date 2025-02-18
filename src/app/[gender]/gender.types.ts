@@ -1,4 +1,5 @@
 import {
+  CategoryKey,
   Categoryroutes,
   GenderRoutes,
 } from "@/services/api.model";
@@ -6,4 +7,5 @@ import {
 export type GenderParams = {
   gender: GenderRoutes;
   category: Categoryroutes;
+  subcategory: CategoryKey;
 };

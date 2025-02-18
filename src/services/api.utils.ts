@@ -81,3 +81,20 @@ export const categories: Record<
     url: `${API_BASE_URL}/products/category/mens-watches`,
   },
 };
+
+export const categoriesTitle: Record<CategoryKey, string> = {
+  beauty: "Beauty",
+  fragrances: "Profumi",
+  "skin-care": "Cura della pelle",
+  "sports-accessories": "Accessori sportivi",
+  sunglasses: "Occhiali da sole",
+  tops: "Top",
+  "womens-bags": "Borse",
+  "womens-dresses": "Vestiti",
+  "womens-jewellery": "Gioielli",
+  "womens-shoes": "Scarpe",
+  "womens-watches": "Orologi",
+  "mens-shirts": "Camicie",
+  "mens-shoes": "Scarpe",
+  "mens-watches": "Orologi",
+};

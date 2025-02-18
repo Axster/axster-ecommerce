@@ -9,7 +9,7 @@ export default function ProductGender() {
   const genderInfo = genderApiMap[gender];
 
   if (!genderInfo) {
-    return <p>Categoria non trovata</p>;
+    return <p>Pagina Non trovata</p>;
   }
 
   return (
