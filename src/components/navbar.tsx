@@ -7,7 +7,7 @@ import {
   User,
   Globe,
 } from "lucide-react";
-import zalando from "../../public/images/zalando_logo.png";
+import logo from "../../public/images/logo.png";
 import Searchbar from "./searchbar";
 import { GenderParams } from "@/app/[gender]/gender.types";
 import { useParams } from "next/navigation";
@@ -23,19 +23,19 @@ export function Navbar() {
           <nav className="hidden md:flex items-center space-x-6">
             <Link
               href="/women"
-              className={`text-sm font-extrabold ${gender === "women" ? "text-white bg-black px-4 py-1" : "hover:underline"}`}
+              className={`text-sm font-extrabold ${gender === "women" ? "text-[#FF5722] bg-black px-4 py-1" : "hover:underline"}`}
             >
               Donna
             </Link>
             <Link
               href="/men"
-              className={`text-sm font-extrabold ${gender === "men" ? "text-white bg-black px-4 py-1" : "hover:underline"}`}
+              className={`text-sm font-extrabold ${gender === "men" ? "text-[#FF5722] bg-black px-4 py-1" : "hover:underline"}`}
             >
               Uomo
             </Link>
             <Link
               href="/children"
-              className={`text-sm font-extrabold ${gender === "children" ? "text-white bg-black px-4 py-1" : "hover:underline"}`}
+              className={`text-sm font-extrabold ${gender === "children" ? "text-[#FF5722] bg-black px-4 py-1" : "hover:underline"}`}
             >
               Bambini
             </Link>
@@ -45,11 +45,10 @@ export function Navbar() {
             className="flex items-start md:items-center space-x-6"
           >
             <Image
-              src={zalando}
-              alt="Zalando"
-              width={130}
-              height={40}
-              className="h-7 w-auto"
+              src={logo}
+              alt="Steve Jobs Deal"
+      
+              className="h-12 w-auto"
             />
           </Link>
           <div className="flex items-center space-x-6">
@@ -72,12 +71,6 @@ export function Navbar() {
         {/* Secondary navigation */}
         <div className="flex items-center justify-between h-12 px-4">
           <nav className="flex items-center space-x-6">
-            <Link
-              href={`/${gender}/new`}
-              className="text-sm font-semibold whitespace-nowrap"
-            >
-              NEW IN
-            </Link>
             <Link
               href={`/${gender}/clothing`}
               className="text-sm font-semibold"
@@ -103,32 +96,14 @@ export function Navbar() {
               Sport
             </Link>
             <Link
-              href={`/${gender}/streetwear`}
-              className="text-sm font-semibold hidden lg:inline"
-            >
-              Streetwear
-            </Link>
-            <Link
-              href={`/${gender}/designer`}
-              className="text-sm font-semibold hidden lg:inline"
-            >
-              Designer
-            </Link>
-            <Link
-              href={`/${gender}/brand`}
-              className="text-sm font-semibold hidden lg:inline"
-            >
-              Brand
-            </Link>
-            <Link
               href={`/${gender}/beauty`}
-              className="text-sm font-semibold hidden lg:inline"
+              className="text-sm font-semibold hidden md:inline"
             >
               Beauty
             </Link>
             <Link
               href={`/${gender}/promo`}
-              className="text-sm font-semibold text-red-600 hidden xl:inline"
+              className="text-sm font-semibold text-red-600 hidden md:inline"
             >
               PROMO
             </Link>

@@ -1,12 +1,12 @@
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { PopularLinks } from "@/components/popular-links";
-import type React from "react"; // Added import for React
+import type React from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Zalando",
-  description: "Created for exam",
+  title: "Axster",
+  description: "Created for an exam",
   generator: "with passion",
 };
 

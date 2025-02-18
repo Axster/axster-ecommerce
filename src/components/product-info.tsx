@@ -142,7 +142,7 @@ export function ProductInfo({
               <span className="text-purple-600 font-medium">
                 PME Legend
               </span>
-              , spedito da Zalando.
+              , spedito da Axster.
             </p>
           </div>
 

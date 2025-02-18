@@ -212,40 +212,6 @@ export function Filters({
             />
           </PopoverContent>
         </Popover>
-
-        {[
-          "Brand",
-          "Taglia",
-          "Colore",
-          "Novità",
-          "Materiale",
-        ].map((filter) => (
-          <button
-            key={filter}
-            className="px-4 py-2 border flex items-center gap-2 transition-all border-black hover:bg-gray-300"
-          >
-            {filter}
-            <ChevronDown className="w-4 h-4" />
-          </button>
-        ))}
-      </div>
-
-      <div className="flex flex-wrap gap-2">
-        {[
-          "Lunghezza",
-          "Fantasia",
-          "Linea",
-          "Tipo prodotto",
-          "Consegna",
-        ].map((filter) => (
-          <button
-            key={filter}
-            className="px-4 py-2 border flex items-center gap-2 transition-all border-black hover:bg-gray-300"
-          >
-            {filter}
-            <ChevronDown className="w-4 h-4" />
-          </button>
-        ))}
       </div>
       <ProductGrid products={sortedProducts} />
     </div>

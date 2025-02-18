@@ -18,7 +18,7 @@ import GooglePlay from "../../public/images/play-store.svg";
 export function Footer() {
   return (
     <footer>
-      <div className="bg-[#6428F1] text-white py-12">
+      <div className="bg-[#FF5722] text-white py-12">
         <div className="container mx-auto max-w-7xl md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Aiuto e contatti */}
@@ -145,10 +145,10 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* ZALANDO */}
+            {/* AXSTER */}
             <div>
               <h3 className="font-bold mb-4">
-                ZALANDO
+                AXSTER
               </h3>
               <ul className="space-y-3 text-sm">
                 <li>
@@ -293,7 +293,7 @@ export function Footer() {
                     href="#"
                     className="hover:underline"
                   >
-                    Zalando Partner
+                    Axster Partner
                   </Link>
                 </li>
               </ul>
@@ -345,7 +345,7 @@ export function Footer() {
 
             <div>
               <h5 className="text-sm mb-4">
-                App Zalando:
+                App Axster:
               </h5>
               <div className="flex items-center gap-4">
                 <Image

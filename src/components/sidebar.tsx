@@ -93,7 +93,7 @@ export function Sidebar() {
             <a
               key={index}
               href={category.route ?? "#"}
-              className={`text-sm font-bold block py-1 ${isActive ? "text-purple-600 font-bold" : "hover:text-purple-600"}`}
+              className={`text-sm font-bold block py-1 ${isActive ? "text-[#FF5722] font-bold" : "hover:text-[#FF5722]"}`}
             >
               {category.name}
             </a>
