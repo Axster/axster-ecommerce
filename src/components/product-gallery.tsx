@@ -11,10 +11,12 @@ import NoImage from "../../public/images/no_image_placeholder.png";
 
 interface ProductGalleryProps {
   images: string[];
+  discountPercentage?: number;
 }
 
 export function ProductGallery({
   images,
+  discountPercentage,
 }: ProductGalleryProps) {
   const [selectedImage, setSelectedImage] =
     useState(0);
@@ -33,6 +35,10 @@ export function ProductGallery({
     }
   };
 
+  console.log(
+    "discountPercentage",
+    discountPercentage
+  );
   return (
     <div className="flex gap-4">
       {/* Thumbnails column */}
@@ -84,6 +90,12 @@ export function ProductGallery({
 
       {/* Main image */}
       <div className="relative flex-1 aspect-square bg-cover rounded-lg overflow-hidden">
+        {discountPercentage &&
+          discountPercentage > 14 && (
+            <div className="absolute font-bold top-5 left-0 bg-[rgb(217,0,12)] text-white text-xs p-1">
+              Promo
+            </div>
+          )}
         <Image
           src={images[selectedImage] || NoImage}
           alt="Product image"
