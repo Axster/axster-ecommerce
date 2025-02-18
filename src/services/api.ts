@@ -13,8 +13,26 @@ import {
   categories,
 } from "./api.utils";
 import { createQueryString } from "../../utils/createQueryString";
+import {
+  getChildrenProducts,
+  getChildrenClothing,
+  getChildrenAccessories,
+  getChildrenBeauty,
+} from "./api.children";
+import {
+  getMenProducts,
+  getMenClothing,
+  getMenAccessories,
+  getMenBeauty,
+} from "./api.men";
+import {
+  getWomenProducts,
+  getWomenClothing,
+  getWomenAccessories,
+  getWomenBeauty,
+} from "./api.women";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     "Content-Type": "application/json",
@@ -35,186 +53,6 @@ export const getProducts = async (
 
 // default skip: 0
 // default limit: 30
-
-export const getMenProducts = async (
-  filters?: Filters
-) => {
-  const query = filters
-    ? `?${createQueryString(filters)}`
-    : "";
-  const responses = await Promise.all([
-    api.get(
-      `${categories["mens-shirts"].url}${query}`
-    ),
-    api.get(
-      `${categories["mens-shoes"].url}${query}`
-    ),
-    api.get(
-      `${categories["mens-watches"].url}${query}`
-    ),
-  ]);
-
-  return responses.flatMap(
-    (response) => response.data.products
-  ) as Product[];
-};
-
-export const getMenClothing = async (
-  filters?: Filters
-) => {
-  const query = filters
-    ? `?${createQueryString(filters)}`
-    : "";
-  const responses = await Promise.all([
-    api.get(
-      `${categories["mens-shirts"].url}${query}`
-    ),
-    api.get(
-      `${categories["mens-shoes"].url}${query}`
-    ),
-  ]);
-  return responses.flatMap(
-    (response) => response.data.products
-  ) as Product[];
-};
-
-export const getMenAccessories = async (
-  filters?: Filters
-) => {
-  const query = filters
-    ? `?${createQueryString(filters)}`
-    : "";
-  const responses = await Promise.all([
-    api.get(
-      `${categories["mens-watches"].url}${query}`
-    ),
-    api.get(
-      `${categories["sunglasses"].url}${query}`
-    ),
-  ]);
-
-  return responses.flatMap(
-    (response) => response.data.products
-  ) as Product[];
-};
-
-export const getWomenAccessories = async (
-  filters?: Filters
-) => {
-  const query = filters
-    ? `?${createQueryString(filters)}`
-    : "";
-  const responses = await Promise.all([
-    api.get(
-      `${categories["womens-bags"].url}${query}`
-    ),
-    api.get(
-      `${categories["womens-jewellery"].url}${query}`
-    ),
-    api.get(
-      `${categories["womens-watches"].url}${query}`
-    ),
-    api.get(
-      `${categories["sunglasses"].url}${query}`
-    ),
-  ]);
-
-  return responses.flatMap(
-    (response) => response.data.products
-  ) as Product[];
-};
-
-export const getWomenClothing = async (
-  filters?: Filters
-) => {
-  const query = filters
-    ? `?${createQueryString(filters)}`
-    : "";
-  const responses = await Promise.all([
-    api.get(
-      `${categories["womens-dresses"].url}${query}`
-    ),
-    api.get(
-      `${categories["womens-shoes"].url}${query}`
-    ),
-    api.get(`${categories["tops"].url}${query}`),
-  ]);
-
-  return responses.flatMap(
-    (response) => response.data.products
-  ) as Product[];
-};
-
-export const getWomenProducts = async (
-  filters?: Filters
-) => {
-  const query = filters
-    ? `?${createQueryString(filters)}`
-    : "";
-  const responses = await Promise.all([
-    api.get(
-      `${categories["womens-bags"].url}${query}`
-    ),
-    api.get(
-      `${categories["womens-dresses"].url}${query}`
-    ),
-    api.get(
-      `${categories["womens-jewellery"].url}${query}`
-    ),
-    api.get(
-      `${categories["womens-shoes"].url}${query}`
-    ),
-    api.get(
-      `${categories["womens-watches"].url}${query}`
-    ),
-    api.get(`${categories["tops"].url}${query}`),
-  ]);
-
-  return responses.flatMap(
-    (response) => response.data.products
-  ) as Product[];
-};
-
-export const getMenBeauty = async (
-  filters?: Filters
-) => {
-  const query = filters
-    ? `?${createQueryString(filters)}`
-    : "";
-  const responses = await Promise.all([
-    api.get(
-      `${categories["fragrances"].url}${query}`
-    ),
-    api.get(
-      `${categories["skin-care"].url}${query}`
-    ),
-  ]);
-  return responses.flatMap(
-    (response) => response.data.products
-  ) as Product[];
-};
-
-export const getWomenBeauty = async (
-  filters?: Filters
-) => {
-  const query = filters
-    ? `?${createQueryString(filters)}`
-    : "";
-  const responses = await Promise.all([
-    api.get(
-      `${categories["beauty"].url}${query}`
-    ),
-    api.get(
-      `${categories["fragrances"].url}${query}`
-    ),
-    api.get(
-      `${categories["skin-care"].url}${query}`
-    ),
-  ]);
-  return responses.flatMap(
-    (response) => response.data.products
-  ) as Product[];
-};
 
 export const getProductById = async (
   id: number
@@ -256,9 +94,8 @@ export const genderApiMap: GenderApiMap = {
     title: "Donna",
     breadcrumb: ["Donna"],
   },
-  // add children route
   children: {
-    fetch: getWomenProducts,
+    fetch: getChildrenProducts,
     title: "Bambino",
     breadcrumb: ["Bambino"],
   },
@@ -327,36 +164,35 @@ export const categoryApiMap: GenderCategoryMap = {
       breadcrumb: ["Donna", "Sport"],
     },
   },
-  // it's always the women category, child is not present in the API
   children: {
     shoes: {
       fetch: () =>
-        getProductsByCategory("womens-shoes"),
-      title: "Scarpe Donna",
-      breadcrumb: ["Donna", "Scarpe"],
+        getProductsByCategory("mens-shoes"),
+      title: "Scarpe Bambino",
+      breadcrumb: ["Bambino", "Scarpe"],
     },
     clothing: {
-      fetch: () => getWomenClothing(),
-      title: "Abbigliamento Donna",
-      breadcrumb: ["Donna", "Abbigliamento"],
+      fetch: () => getChildrenClothing(),
+      title: "Collezione Bambino",
+      breadcrumb: ["Bambino", "Abbigliamento"],
     },
     accessories: {
-      fetch: () => getWomenAccessories(),
-      title: "Accessori Donna",
-      breadcrumb: ["Donna", "Accessori"],
+      fetch: () => getChildrenAccessories(),
+      title: "Accessori Bambino",
+      breadcrumb: ["Bambino", "Accessori"],
     },
     beauty: {
-      fetch: () => getWomenBeauty(),
-      title: "Beauty Donna",
-      breadcrumb: ["Donna", "Beauty"],
+      fetch: () => getChildrenBeauty(),
+      title: "Beauty Bambino",
+      breadcrumb: ["Bambino", "Beauty"],
     },
     sport: {
       fetch: () =>
         getProductsByCategory(
           "sports-accessories"
         ),
-      title: "Sport Donna",
-      breadcrumb: ["Donna", "Sport"],
+      title: "Sport Bambino",
+      breadcrumb: ["Bambino", "Sport"],
     },
   },
 };
